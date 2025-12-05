@@ -51,13 +51,13 @@ export default function HeroBanner() {
 
       {/* ---------- FIXED OVERLAY CONTENT (NOT SLIDING) ---------- */}
       <div className="absolute inset-0 z-10 pointer-events-none ">
-        <div className="h-full flex flex-col justify-center px-14 md:px-20 lg:px-28 text-white max-w-3xl">
+        <div className="h-full flex flex-col justify-center px-12 md:px-20 lg:px-28 text-white max-w-3xl">
           <h1 className="text-6xl md:text-7xl font-bold leading-tight drop-shadow-xl">
             SEL Offers <br /> Quiet and Deep <br /> Stillness
           </h1>
 
-          <div className="absolute bottom-10 flex-col sm:flex mt-6 items-center pointer-events-auto">
-            <p className="text-lg leading-relaxed max-w-xs sm:max-w-md text-gray-100 drop-shadow">
+          <div className="absolute bottom-10 flex mt-6 items-center pointer-events-auto">
+            <p className="text-lg leading-relaxed max-w-md text-gray-100 drop-shadow">
               We have a holistic philosophy which translates into creating a
               harmonious environment, by wellness services that aim to detoxify
             </p>
