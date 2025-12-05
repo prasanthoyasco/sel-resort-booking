@@ -67,13 +67,13 @@ export default function HeroBanner() {
               {/* Top Arrow (Appears on Hover – slides down) */}
               <img
                 src="/icons/arrow-down.svg"
-                className="w-6 absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:translate-x-10 group-hover:opacity-0"
+                className="w-6 invert-100 absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:translate-x-10 group-hover:opacity-0"
               />
 
               {/* Hidden Arrow (Appears from top on Hover) */}
               <img
                 src="/icons/arrow-down.svg"
-                className="w-6 absolute -translate-y-10 -translate-x-10 transition-all duration-300 opacity-0 transform group-hover:translate-y-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:scale-105"
+                className="w-6 invert-100 absolute -translate-y-10 -translate-x-10 transition-all duration-300 opacity-0 transform group-hover:translate-y-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:scale-105"
               />
             </button>
           </div>

@@ -26,9 +26,9 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto flex items-center gap-10 px-6 py-4 text-white font-medium">
         <div className="flex items-center gap-4">
             <Link to="/" className="hover:text-gray-300 transition">Home</Link>
-        <Link to="/about" className="hover:text-gray-300 transition">About</Link>
-        <Link to="/contact" className="hover:text-gray-300 transition">Contact</Link>
-        <Link to="/contact" className="hover:text-gray-300 transition">Aminities</Link>
+        <Link to="/" className="hover:text-gray-300 transition">About</Link>
+        <Link to="/" className="hover:text-gray-300 transition">Contact</Link>
+        <Link to="/" className="hover:text-gray-300 transition">Aminities</Link>
         </div>
 
         <div className="h-full w-36 mx-auto flex items-center rounded-full">

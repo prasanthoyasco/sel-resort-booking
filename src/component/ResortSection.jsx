@@ -190,7 +190,7 @@ export default function ResortSection() {
                 <div className="w-10 h-10 rounded-full bg-white/70 backdrop-blur flex items-center justify-center cursor-pointer hover:bg-white transition">
                   <img
                     src="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/68512e74aec665cf47b7a252_Vector.svg"
-                    className="w-4"
+                    className="w-4 invert-100"
                   />
                 </div>
               </div>
