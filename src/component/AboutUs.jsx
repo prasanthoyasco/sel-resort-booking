@@ -52,7 +52,7 @@ export default function AboutUs() {
               className="flex flex-col items-center group cursor-pointer"
             >
               {/* Circle */}
-              <div className="relative w-24 h-24 rounded-full flex items-center justify-center bg-white shadow-sm transition-all duration-300 group-hover:bg-[#1C1C1C]">
+              <div className="relative w-24 h-24 rounded-full flex items-center justify-center bg-white border border-[#a3b7c2] shadow-sm transition-all duration-300 group-hover:bg-[#1C1C1C]">
                 {/* Color icon */}
                 <img
                   src={item.iconColor}

@@ -1,6 +1,6 @@
 export default function VillaBookingSection() {
   return (
-    <section className="relative px-5 overflow-hidden mt-10">
+    <section className="relative px-2 sm:px-5 overflow-hidden mt-10">
       <div className="w-full h-[70vh] sm:h-screen rounded-3xl relative">
 
         {/* Background Image */}
