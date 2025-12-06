@@ -17,7 +17,7 @@ export default function HeroBanner() {
 
 
   return (
-    <section className="relative w-full min-h-screen h-screen p-2 overflow-x-clip overflow-y-visible">
+    <section className="relative w-full min-h-screen h-screen px-2 py-1.5 overflow-x-clip overflow-y-visible">
       {/* ---------- SLIDER ONLY FOR IMAGES ---------- */}
       <Swiper
         modules={[Navigation, Autoplay, EffectFade]}
@@ -31,7 +31,7 @@ export default function HeroBanner() {
           disableOnInteraction: false,
         }}
         loop={true}
-        className="w-full h-full rounded-[40px] overflow-hidden"
+        className="w-full h-full rounded-[15px] overflow-hidden"
       >
         {slides.map((img, index) => (
           <SwiperSlide key={index}>

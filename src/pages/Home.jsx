@@ -6,10 +6,11 @@ import AboutUs from '../component/AboutUs'
 import VillaBookingSection from '../component/VillaBookingSection'
 import VisionMissionSection from '../component/VisionMissionSection'
 import TestimonialCard from '../component/TestimonialCard'
+import Footer from '../component/Footer'
 
 const Home = () => {
   return (
-    <>
+    <div className='px-2'>
     <Navigation/>
     <HeroBanner/>
     <AboutUs/>
@@ -17,7 +18,8 @@ const Home = () => {
     <VillaBookingSection/>
     <VisionMissionSection/>
     <TestimonialCard/>
-    </>
+    <Footer/>
+    </div>
   )
 }
 
