@@ -35,8 +35,8 @@ export default function AboutUs() {
 
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* TOP CONTENT */}
-        <h6 className="text-[#758dc2] tracking-widest text-sm font-semibold mb-6">
-          THE CONCEPT
+        <h6 className="text-[#758dc2] tracking-widest text-lg font-semibold mb-6">
+          About Us
         </h6>
 
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight text-[#0A0A0A] max-w-6xl mx-auto">
