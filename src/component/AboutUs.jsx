@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function AboutUs() {
+  const text =
+    "Sel offers quiet beauty and deep stillness — a sanctuary with soul, where refined design lives in harmony with the Mountains.";
+
+  const words = text.split(" ");
+
+  const controls = useAnimation();
+
+  // 👇 allow animation to run when entering & leaving
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
+  // 👇 scroll UP = hide, scroll DOWN = show
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [inView]);
+
   const items = [
     {
       iconColor: "/icons/icon1-color.svg",
@@ -39,9 +63,32 @@ export default function AboutUs() {
           About Us
         </h6>
 
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight text-[#0A0A0A] max-w-6xl mx-auto">
-          Sel offers quiet beauty and deep stillness — a sanctuary with soul,
-          where refined design lives in harmony with the Mountains.
+        {/* WORD-BY-WORD SCROLL ANIMATION */}
+        <h2
+          ref={ref}
+          className="text-3xl md:text-5xl lg:text-6xl text-center font-semibold leading-tight text-[#0A0A0A] max-w-6xl mx-auto flex flex-wrap justify-center"
+        >
+          {words.map((word, i) => (
+            <motion.span
+              key={i}
+              variants={{
+                hidden: { opacity: 0.2, y: 0 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    delay: i * 0.05,
+                    duration: 0.4,
+                  },
+                },
+              }}
+              initial="hidden"
+              animate={controls}
+              className="mr-2"
+            >
+              {word}
+            </motion.span>
+          ))}
         </h2>
 
         {/* ICON ROW */}
@@ -51,16 +98,12 @@ export default function AboutUs() {
               key={idx}
               className="flex flex-col items-center group cursor-pointer"
             >
-              {/* Circle */}
               <div className="relative w-24 h-24 rounded-full flex items-center justify-center bg-white border border-[#a3b7c2] shadow-sm transition-all duration-300 group-hover:bg-[#1C1C1C]">
-                {/* Color icon */}
                 <img
                   src={item.iconColor}
                   alt=""
                   className="w-10 h-10 absolute transition-opacity duration-300 group-hover:opacity-0"
                 />
-
-                {/* White icon */}
                 <img
                   src={item.iconWhite}
                   alt=""
@@ -68,7 +111,6 @@ export default function AboutUs() {
                 />
               </div>
 
-              {/* Label */}
               <p className="mt-4 text-gray-700 font-semibold max-w-sm text-md md:text-base capitalize text-center">
                 {item.label}
               </p>

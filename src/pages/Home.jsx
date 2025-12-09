@@ -10,7 +10,7 @@ import Footer from '../component/Footer'
 
 const Home = () => {
   return (
-    <div className='px-2'>
+    <>
     <Navigation/>
     <HeroBanner/>
     <AboutUs/>
@@ -18,8 +18,10 @@ const Home = () => {
     <VillaBookingSection/>
     <VisionMissionSection/>
     <TestimonialCard/>
+    <div className='px-2'>
     <Footer/>
     </div>
+    </>
   )
 }
 
