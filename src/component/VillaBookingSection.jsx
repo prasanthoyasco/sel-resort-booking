@@ -4,7 +4,6 @@ import "aos/dist/aos.css";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { easeIn } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,30 +16,34 @@ export default function VillaBookingSection() {
       easing: "ease-out-cubic",
     });
 
-    // GSAP — Parallax Background
-    gsap.to(".villa-bg", {
-      scale: 1,
-      y: 80,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#villa-section",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-    gsap.to(".villa-overlay-bg", {
-      scale: 1,
-      y: 80,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#villa-section",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    // ✔ Run GSAP only on desktop (≥ 768px)
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
+    if (isDesktop) {
+      gsap.to(".villa-bg", {
+        scale: 1,
+        y: 80,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#villa-section",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      gsap.to(".villa-overlay-bg", {
+        scale: 1,
+        y: 80,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#villa-section",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
   }, []);
 
   return (
@@ -51,36 +54,29 @@ export default function VillaBookingSection() {
       <div className="w-full h-[70vh] sm:h-screen rounded-3xl relative">
         {/* Background Image */}
         <div className="absolute inset-0 rounded-3xl overflow-hidden">
-          {/* Background Image */}
           <img
             src="/images/form-bg.webp"
             alt="Villa"
-            className="villa-bg w-full h-screen rounded-3xl object-cover"
+            className="villa-bg w-full h-full sm:h-screen rounded-3xl object-cover"
           />
-
-          {/* Overlay */}
           <div className="villa-overlay-bg absolute rounded-3xl inset-0 bg-black/40"></div>
         </div>
 
         {/* CONTENT */}
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between py-8 sm:py-20 px-16 h-full gap-10">
-          {/* LEFT TEXT — AOS */}
-          <div className="text-white max-w-xl" data-aos="fade-right" data-duration="800">
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between py-8 sm:py-20 px-16 h-full gap-2 lg:gap-10">
+          <div className="text-white max-w-xl" data-aos="fade-right">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] ">
               Come As You Are And We Will Take Care Of The Rest
             </h2>
           </div>
 
-          {/* FORM — GSAP */}
-          <div className="mt-10 md:mt-0" data-aos="fade-left" data-duration="800">
+          <div className="mt-0 md:mt-0" data-aos="fade-left">
             <div className="w-[360px] md:w-[420px] bg-white/30 backdrop-blur-2xl p-8 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
               <h3 className="text-center text-white text-xl font-semibold mb-6">
                 See Available Villas
               </h3>
 
-              {/* FORM */}
               <form className="space-y-6">
-                {/* ARRIVAL + DEPARTURE */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="text-white text-sm mb-1 block">
@@ -105,7 +101,6 @@ export default function VillaBookingSection() {
                   </div>
                 </div>
 
-                {/* GUESTS */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="text-white text-sm mb-1 block">
@@ -130,7 +125,6 @@ export default function VillaBookingSection() {
                   </div>
                 </div>
 
-                {/* BUTTON */}
                 <button
                   type="submit"
                   className="w-full bg-[#FFC299] hover:bg-[#ffb47d] transition text-black font-medium py-3 rounded-full"

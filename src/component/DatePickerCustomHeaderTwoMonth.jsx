@@ -32,7 +32,7 @@ const DatePickerCustomHeaderTwoMonth = ({
       <button
         aria-label="Next Month"
         className="absolute right-0 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
-        style={customHeaderCount === 0 ? { visibility: "hidden" } : {}}
+        style={customHeaderCount === 1 ? { visibility: "hidden" } : {}}
         onClick={increaseMonth}
         type="button"
       >

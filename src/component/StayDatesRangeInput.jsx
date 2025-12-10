@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import {
   Popover,
   PopoverButton,
@@ -13,8 +13,17 @@ import DatePickerCustomHeaderTwoMonth from "./DatePickerCustomHeaderTwoMonth";
 import DatePickerCustomDay from "./DatePickerCustomDay";
 
 const StayDatesRangeInput = ({ className = "", fieldClassName = "" }) => {
-  const [startDate, setStartDate] = useState(new Date("2023/02/06"));
-  const [endDate, setEndDate] = useState(new Date("2023/02/23"));
+  const [startDate, setStartDate] = useState(() => {
+    const today = new Date();
+    return today;
+  });
+
+  const [endDate, setEndDate] = useState(() => {
+    const today = new Date();
+    const fiveDaysLater = new Date();
+    fiveDaysLater.setDate(today.getDate() + 5);
+    return fiveDaysLater;
+  });
 
   const onChangeDates = (dates) => {
     const [start, end] = dates;
@@ -59,15 +68,15 @@ const StayDatesRangeInput = ({ className = "", fieldClassName = "" }) => {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 -translate-y-1"
           >
-            <PopoverPanel className="absolute z-20 left-1/2 top-full -translate-x-1/2 mt-3 w-screen max-w-xl px-4">
-              <div className="rounded-3xl bg-white shadow-xl p-6">
+            <PopoverPanel className="absolute z-20 left-1/2 bottom-full -translate-x-1/2 mt-3 w-screen max-w-sm">
+              <div className="rounded-3xl bg-white shadow-xl p-6 mx-auto">
                 <DatePicker
                   selected={startDate}
                   onChange={onChangeDates}
                   startDate={startDate}
                   endDate={endDate}
                   selectsRange
-                  monthsShown={2}
+                  monthsShown={1}
                   inline
                   renderCustomHeader={(p) => (
                     <DatePickerCustomHeaderTwoMonth {...p} />

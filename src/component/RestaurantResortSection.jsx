@@ -14,7 +14,6 @@ const restaurantData = [
     location: "Coimbatore, Tamil Nadu",
     phone: "+91 98765 43210",
     booking: "Call for Booking",
-    bgColor: "bg-white",
     aosDelay: 100,
   },
   {
@@ -26,7 +25,6 @@ const restaurantData = [
     location: "Coimbatore",
     phone: "+91 99887 66554",
     booking: "Open Daily",
-    bgColor: "bg-white",
     aosDelay: 400,
   },
   {
@@ -38,7 +36,6 @@ const restaurantData = [
     location: "Coimbatore",
     phone: "+91 91234 56789",
     booking: "Limited Slots",
-    bgColor: "bg-white",
     aosDelay: 800,
   },
 ];
@@ -81,7 +78,7 @@ export default function RestaurantResortSection() {
           {restaurantData.map((item) => (
             <div
               key={item.id}
-              className={`${item.bgColor} rounded-2xl shadow-sm overflow-hidden hover:shadow-xl transition p-5`}
+              className={`bg-neutral-100 border border-gray-200 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition p-5`}
               data-aos="fade-up"
               data-aos-delay={item.aosDelay}
             >
@@ -95,13 +92,13 @@ export default function RestaurantResortSection() {
 
               <div className="mt-4 space-y-2 text-gray-700">
                 <p className="flex items-center gap-2">
-                  <MapPin size={18} /> {item.location}
+                  <MapPin size={18} className="text-[#eea159]" /> {item.location}
                 </p>
                 <p className="flex items-center gap-2">
-                  <Phone size={18} /> {item.phone}
+                  <Phone size={18} className="text-[#eea159]" /> {item.phone}
                 </p>
                 <p className="flex items-center gap-2">
-                  <CalendarDays size={18} /> {item.booking}
+                  <CalendarDays size={18} className="text-[#eea159]" /> {item.booking}
                 </p>
               </div>
             </div>

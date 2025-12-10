@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import StaySearchForm from "./StaySearchForm";
+import { ChevronRight } from "lucide-react";
 
 const HeroSearchForm = ({
   className = "",
@@ -13,12 +14,12 @@ const HeroSearchForm = ({
       <h2 className="text-white mb-3 font-bold text-2xl">Select Your Stay</h2>
       {/* TABS */}
       <ul className=" flex space-x-5 sm:space-x-8 lg:space-x-11 overflow-x-auto">
-        {tabs.map((tab) => {
+        {tabs.map((tab, index) => {
           const active = tab === tabActive;
           return (
-            <>
+              <>
               <li
-                key={tab}
+                key={index}
                 onClick={() => setTabActive(tab)}
                 className={`flex items-center cursor-pointer text-sm lg:text-base  ${
                   active
@@ -31,7 +32,7 @@ const HeroSearchForm = ({
                 )}
                 {tab}
               </li>
-            </>
+              </>
           );
         })}
       </ul>

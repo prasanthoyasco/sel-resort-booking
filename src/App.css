@@ -116,13 +116,19 @@ html, body {
   border-radius: 0 50% 50% 0 !important;
   line-height: 3 !important;
 }
-
-/* Remove hover effect */
-.react-datepicker__day:hover {
-  background: #dfe6ff !important;
+.react-datepicker__day{
   line-height: 3 !important;
 }
-
+/* Remove hover effect */
+.react-datepicker__day:hover {
+  background: #e7eafe !important;
+}
+.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range), .react-datepicker__month-text--in-selecting-range:not(.react-datepicker__day--in-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range), .react-datepicker__quarter-text--in-selecting-range:not(.react-datepicker__day--in-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range), .react-datepicker__year-text--in-selecting-range:not(.react-datepicker__day--in-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range) {
+  background: #e7eafe !important;
+  color: #111 !important;
+  border-radius: 5px !important;
+  line-height: 3 !important;
+}
 /* Navigation arrows */
 .react-datepicker__navigation {
   top: 22px !important;
@@ -175,7 +181,9 @@ html, body {
   inset: 50% -4px 0% auto;
   background-position: left;
 }
-
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name{
+  width:2.5rem !important;
+}
 /* MOBILE OVERRIDES */
 @media (max-width: 768px) {
   .hero-nav-left {

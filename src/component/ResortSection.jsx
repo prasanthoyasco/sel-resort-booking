@@ -58,7 +58,6 @@ export default function ResortSection() {
   useEffect(() => {
     AOS.init({
       duration: 900,
-      once: false,
       easing: "ease-out",
       offset: 120,
     });
@@ -73,7 +72,6 @@ export default function ResortSection() {
       data-aos-delay="50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
         {/* TOP SECTION */}
         <div
           className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10 mb-14"
@@ -96,6 +94,7 @@ export default function ResortSection() {
             className="group bg-black text-white px-6 py-3 rounded-full flex items-center
             gap-4 relative overflow-hidden self-start mx-auto md:mx-0 hover:bg-gray-900 transition"
             data-aos="zoom-in"
+            data-aos-once="true"
             data-aos-delay="150"
           >
             <img
@@ -126,15 +125,20 @@ export default function ResortSection() {
                 <motion.div
                   key={index}
                   layout
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 150}
                   onClick={() => setActiveIndex(index)}
                   onLayoutAnimationComplete={() => setFullyExpandedIndex(index)}
-                  transition={{ type: "spring", stiffness: 200, damping: 24 }}
+                  transition={{
+                    layout: { duration: 0.6, ease: "easeInOut" },
+                    duration: 0.6,
+                    ease: "easeInOut",
+                  }}
                   className="lg:col-span-2 bg-white/30 backdrop-blur-sm rounded-3xl shadow-lg p-2 flex flex-col md:flex-row gap-4 cursor-pointer"
                 >
                   <div className="w-full md:w-1/2 relative rounded-2xl overflow-hidden">
-                    <img src={card.img} className="w-full h-full object-cover" />
+                    <img
+                      src={card.img}
+                      className="w-full h-full object-cover"
+                    />
 
                     <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                       {card.features?.map((item, i) => (
@@ -209,9 +213,11 @@ export default function ResortSection() {
                 <motion.div
                   key={index}
                   layout
-                  data-aos="fade-up"
-                  data-aos-delay={100 + index * 120}
-                  transition={{ type: "spring", stiffness: 200, damping: 24 }}
+                  transition={{
+                    layout: { duration: 0.6, ease: "easeInOut" },
+                    duration: 0.6,
+                    ease: "easeInOut",
+                  }}
                   onClick={() => setActiveIndex(index)}
                   className="rounded-3xl overflow-hidden shadow-lg relative cursor-pointer"
                 >
