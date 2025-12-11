@@ -40,10 +40,10 @@ const Stayinfosection = () => {
       </div>
 
       {/* Rates Table */}
-      <dl className=" grid grid-cols-1 text-base leading-6 sm:grid-cols-[min(50%,--spacing(80))_auto]">
+      <dl className=" grid grid-cols-2 gap-6 lg:gap-0 lg:grid-cols-1 text-base leading-6 sm:grid-cols-[min(50%,--spacing(80))_auto]">
         {/* Mon–Thu */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-3 text-neutral-500 
+          className="col-start-1 border-t border-neutral-950/5  pt-1 lg:pt-3 text-neutral-500 
                    first:border-none sm:py-3 dark:border-white/5 dark:text-neutral-400"
         >
           Monday - Thursday
@@ -57,7 +57,7 @@ const Stayinfosection = () => {
 
         {/* Fri–Sun */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-3 text-neutral-500
+          className="col-start-1 border-t border-neutral-950/5 pt-1 lg:pt-3 text-neutral-500
                    sm:py-3 dark:border-white/5 dark:text-neutral-400"
         >
           Friday - Sunday
@@ -71,7 +71,7 @@ const Stayinfosection = () => {
 
         {/* Monthly */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-3 text-neutral-500 
+          className="col-start-1 border-t border-neutral-950/5 pt-1 lg:pt-3 text-neutral-500 
                    sm:py-3 dark:border-white/5 dark:text-neutral-400"
         >
           Rent by month
@@ -85,7 +85,7 @@ const Stayinfosection = () => {
 
         {/* Min Nights */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-3 text-neutral-500 
+          className="col-start-1 border-t border-neutral-950/5 pt-1 lg:pt-3 text-neutral-500 
                    sm:py-3 dark:border-white/5 dark:text-neutral-400"
         >
           Minimum number of nights
@@ -99,7 +99,7 @@ const Stayinfosection = () => {
 
         {/* Max Nights */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-3 text-neutral-500
+          className="col-start-1 border-t border-neutral-950/5 pt-1 lg:pt-3 text-neutral-500
                    sm:py-3 dark:border-white/5 dark:text-neutral-400"
         >
           Max number of nights

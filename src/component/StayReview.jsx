@@ -12,37 +12,37 @@ import {
 import { useParams } from "react-router-dom";
 
 const reviewsData = [
-    {
-        id: 1,
-        name: "Rishika M",
-        date: "May 11, 2025",
-        rating: 4,
-        avatar: "https://i.pravatar.cc/40?img=30",
-        message:
-            "Excellent place. The host is super friendly, the room is clean and quiet.",
-    },
-    {
-        id: 2,
-        name: "Merlin Soundarya",
-        date: "Aug 22, 2025",
-        rating: 5,
-        avatar: "https://i.pravatar.cc/40?img=47",
-        message:
-            "Very nice and friendly lady. Be pleasant to talk with her. The room looks better than in the pictures.",
-    },
-    {
-        id: 3,
-        name: "Gokum Karthik",
-        date: "Jan 15, 2025",
-        rating: 5,
-        avatar: "https://i.pravatar.cc/40?img=65",
-        message:
-            "Amazing experience! The property exceeded all expectations. Highly recommend for a relaxing getaway.",
-    },
+  {
+    id: 1,
+    name: "Rishika M",
+    date: "May 11, 2025",
+    rating: 4,
+    avatar: "https://i.pravatar.cc/40?img=30",
+    message:
+      "Excellent place. The host is super friendly, the room is clean and quiet.",
+  },
+  {
+    id: 2,
+    name: "Merlin Soundarya",
+    date: "Aug 22, 2025",
+    rating: 5,
+    avatar: "https://i.pravatar.cc/40?img=47",
+    message:
+      "Very nice and friendly lady. Be pleasant to talk with her. The room looks better than in the pictures.",
+  },
+  {
+    id: 3,
+    name: "Gokum Karthik",
+    date: "Jan 15, 2025",
+    rating: 5,
+    avatar: "https://i.pravatar.cc/40?img=65",
+    message:
+      "Amazing experience! The property exceeded all expectations. Highly recommend for a relaxing getaway.",
+  },
 ];
 
 export default function StayReview() {
-    const { name } = useParams();
+  const { name } = useParams();
   const [reviews, setReviews] = useState(reviewsData);
   const [input, setInput] = useState("");
 
@@ -61,33 +61,35 @@ export default function StayReview() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 p-6">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-6 md:gap-10 p-0 md:p-6">
 
       {/* LEFT CARD */}
-      <div className="col-span-1 bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-        
+      <div className="col-span-1 bg-white border border-gray-200 rounded-2xl py-6 px-8 md:p-8 shadow-sm">
+
         {/* Profile */}
         <div className="flex items-center gap-4">
           <img
-            src="https://plus.unsplash.com/premium_photo-1682377521753-58d1fd9fa5ce?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bHV4dXJ5JTIwdmlsbGF8ZW58MHx8MHx8fDA%3D"
-            className="w-16 h-16 rounded-full object-cover"
+            src="https://plus.unsplash.com/premium_photo-1682377521753-58d1fd9fa5ce?fm=jpg&q=60&w=3000"
+            className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover"
             alt="Host"
           />
           <div>
-            <h2 className="text-xl font-semibold text-gray-900">{decodeURIComponent(name)}</h2>
+            <h2 className="text-lg md:text-xl font-semibold text-gray-900">
+              {decodeURIComponent(name)}
+            </h2>
 
-            <div className="flex items-center gap-1 mt-1 text-gray-700">
+            <div className="flex items-center gap-1 mt-1 text-gray-700 text-sm md:text-base">
               <Star className="w-4 h-4 text-yellow-400" />
               <span className="font-semibold">4.8</span>
-              <span className="text-gray-400 text-sm">(120)</span>
+              <span className="text-gray-400 text-xs md:text-sm">(120)</span>
               <span className="mx-1">·</span>
-              <span className="text-sm">15+ Room Types</span>
+              <span className="text-xs md:text-sm">15+ Room Types</span>
             </div>
           </div>
         </div>
 
         {/* Badge */}
-        <div className="flex items-center gap-2 mt-4 text-green-600 font-medium">
+        <div className="flex items-center gap-2 mt-4 text-green-600 font-medium text-sm md:text-base">
           <CheckCircle2 className="w-5 h-5" />
           <span>Hot Booking</span>
           <span className="mx-1 text-gray-400">·</span>
@@ -95,18 +97,18 @@ export default function StayReview() {
         </div>
 
         {/* Description */}
-        <p className="text-gray-600 mt-4 leading-relaxed">
+        <p className="text-gray-600 mt-4 text-sm md:text-base leading-relaxed">
           Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides
           accommodation, an outdoor swimming pool, a bar, a shared lounge, a
-          garden and barbecue facilities.
+          garden, and barbecue facilities.
         </p>
 
         {/* Details */}
-        <div className="mt-8 space-y-4 text-gray-700">
+        <div className="mt-6 space-y-4 text-gray-700 text-sm md:text-base">
 
           <div className="flex items-start gap-3">
             <Calendar className="w-5 h-5 text-gray-500 mt-1" />
-            <p>Inclueded from March 2024</p>
+            <p>Included from March 2024</p>
           </div>
 
           <div className="flex items-start gap-3">
@@ -121,11 +123,11 @@ export default function StayReview() {
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-4 mt-8">
-          <button className="border border-gray-300 px-5 py-2 rounded-full hover:bg-gray-50">
+        <div className="flex flex-col sm:flex-row gap-3 mt-8">
+          <button className="border border-gray-300 px-5 py-2 rounded-full hover:bg-gray-50 w-full sm:w-auto">
             See All Property
           </button>
-          <button className="border border-gray-300 px-5 py-2 rounded-full hover:bg-gray-50 flex items-center gap-2">
+          <button className="border border-gray-300 px-5 py-2 rounded-full hover:bg-gray-50 flex items-center gap-2 w-full sm:w-auto">
             <Share2 className="w-4 h-4" />
             Share
           </button>
@@ -134,7 +136,7 @@ export default function StayReview() {
         <hr className="my-6 border-gray-200" />
 
         {/* Report */}
-        <button className="flex items-center gap-2 mt-10 text-gray-600 hover:underline">
+        <button className="flex items-center gap-2 mt-6 text-gray-600 hover:underline text-sm md:text-base">
           <Flag className="w-4 h-4" />
           Report if any problem
         </button>
@@ -144,7 +146,7 @@ export default function StayReview() {
       <div className="col-span-2">
 
         {/* Title */}
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">
+        <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
           Reviews ({reviews.length} reviews)
         </h2>
 
@@ -156,27 +158,28 @@ export default function StayReview() {
         </div>
 
         {/* Input Box */}
-        <div className="flex items-center border border-gray-300 rounded-full px-6 py-3 mb-10">
+        <div className="flex items-center border border-gray-300 rounded-full px-4 md:px-6 py-2 md:py-3 mb-8">
           <input
             type="text"
-            className="flex-1 outline-none text-gray-700"
+            className="flex-1 outline-none text-gray-700 text-sm md:text-base"
             placeholder="Share your thoughts ..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
           <button
             onClick={handleAddReview}
-            className="bg-gray-900 text-white p-3 rounded-full hover:bg-black transition"
+            className="bg-gray-900 text-white p-2 md:p-3 rounded-full hover:bg-black transition"
           >
             <SendHorizontal className="w-4 h-4" />
           </button>
         </div>
 
         {/* Reviews List */}
-        <div className="space-y-10">
+        <div className="space-y-8 md:space-y-10">
           {reviews.map((review) => (
             <div key={review.id}>
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
+                
                 {/* User Details */}
                 <div className="flex items-center gap-4">
                   <img
@@ -201,7 +204,7 @@ export default function StayReview() {
                 </div>
               </div>
 
-              <p className="mt-3 text-gray-600">{review.message}</p>
+              <p className="mt-3 text-gray-600 text-sm md:text-base">{review.message}</p>
 
               <hr className="mt-6 border-gray-200" />
             </div>
@@ -209,7 +212,7 @@ export default function StayReview() {
         </div>
 
         {/* Load More */}
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-6 md:mt-8">
           <button className="border border-gray-300 px-6 py-2 rounded-full text-gray-700 hover:bg-gray-50">
             View more 20 reviews
           </button>

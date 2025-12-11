@@ -39,7 +39,7 @@ export default function AmenitiesSection() {
       <div className="w-full h-px bg-gray-200 mb-8"></div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-y-6">
         {amenities.map((item, idx) => (
           <div key={idx} className="flex items-center gap-3 text-gray-700">
             <div className="text-gray-600">{item.icon}</div>

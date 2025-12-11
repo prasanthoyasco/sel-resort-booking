@@ -20,20 +20,36 @@ export default function StayHeaderGallery() {
   };
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden"; // ❌ Prevent scroll
-    } else {
-      document.body.style.overflow = "auto"; // ✅ Restore scroll
-    }
+    document.body.style.overflow = open ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [open]);
 
   return (
     <>
-      {/* --- Gallery Grid --- */}
-      <div className="relative top-20 grid grid-cols-4 gap-3 h-[90vh] max-h-screen rounded-2xl overflow-hidden p-4 bg-white">
+      {/* ---------- GALLERY GRID (FULL WIDTH) ---------- */}
+      <div
+        className="
+          relative top-20 
+          grid 
+          grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 
+          gap-2 sm:gap-3
+          h-[45vh] sm:h-[55vh] lg:h-[90vh]
+          max-h-screen 
+          rounded-2xl 
+          overflow-hidden 
+          p-2 sm:p-4 
+          bg-white
+        "
+      >
+        {/* Main Big Image */}
         <div
-          className="col-span-2 row-span-2 cursor-pointer"
+          className="
+            col-span-2 
+            row-span-2 
+            sm:col-span-2 sm:row-span-2 
+            lg:col-span-2 lg:row-span-2
+            cursor-pointer
+          "
           onClick={() => openLightbox(0)}
         >
           <img
@@ -43,6 +59,7 @@ export default function StayHeaderGallery() {
           />
         </div>
 
+        {/* Remaining Images */}
         {images.slice(1, 5).map((img, i) => (
           <div
             key={i}
@@ -57,31 +74,40 @@ export default function StayHeaderGallery() {
           </div>
         ))}
 
-        {/* Show all photos button */}
+        {/* Show All Photos Button */}
         <button
           onClick={() => openLightbox(0)}
-          className="absolute bottom-6 left-6 bg-white shadow px-4 py-3 text-sm rounded-full
-             flex items-center gap-2 transition-all duration-300
-             hover:-translate-y-1 hover:shadow-lg hover:scale-[1.03] hover:bg-gray-50"
+          className="
+            absolute bottom-2 left-3 lg:bottom-6 lg:left-5.5 
+            bg-white shadow 
+            px-3 py-2 sm:px-4 sm:py-3 
+            text-xs sm:text-sm
+            rounded-full
+            flex items-center gap-2 
+            transition-all 
+            duration-300
+            hover:-translate-y-1 hover:shadow-lg hover:scale-[1.03] 
+            hover:bg-gray-50
+          "
         >
-          <LayoutGrid className="text-gray-600" size={18} />
+          <LayoutGrid className="text-gray-600" size={16} />
           Show all photos
         </button>
       </div>
 
-      {/* --- Fullscreen Lightbox --- */}
+      {/* ---------- FULLSCREEN LIGHTBOX ---------- */}
       {open && (
         <div className="fixed inset-0 h-screen bg-black/90 z-50 flex flex-col justify-center items-center">
-          {/* Close button */}
+          {/* Close Button */}
           <button
             onClick={() => setOpen(false)}
-            className="absolute top-5 right-5 bg-white/20 hover:bg-white/40 backdrop-blur p-3 rounded-full text-white"
+            className="absolute top-22 right-6 lg:top-5 lg:right-5 bg-black/50 border-gray-10 hover:bg-white/40 backdrop-blur p-3 rounded-full text-white"
           >
             <X />
           </button>
 
           {/* Main Image */}
-          <div className="w-[90vw] max-h-[95vh] rounded-2xl overflow-hidden flex items-center justify-center">
+          <div className="w-[90vw] lg:w-[95vw] max-h-[80vh] h-[80vh] mt-20 lg:mt-0 lg:h-auto rounded-2xl overflow-hidden flex items-center justify-center">
             <img
               src={images[activeIndex]}
               alt=""
@@ -89,16 +115,25 @@ export default function StayHeaderGallery() {
             />
           </div>
 
-          {/* Thumbnail Row */}
-          <div className="flex absolute bottom-1 gap-2 mt-5 overflow-x-auto px-4 pb-4">
+          {/* Thumbnails Row */}
+          <div
+            className="
+              flex gap-2 mt-4 
+              overflow-x-auto 
+              px-4 pb-6 
+              w-full justify-center
+            "
+          >
             {images.map((img, i) => (
               <img
                 key={i}
                 src={img}
                 onClick={() => setActiveIndex(i)}
-                className={`h-20 rounded-lg cursor-pointer ${
-                  i === activeIndex ? " border-2 border-white" : "opacity-100"
-                }`}
+                className={`
+                  h-16 sm:h-20 rounded-lg cursor-pointer 
+                  transition 
+                  ${i === activeIndex ? "border-2 border-white" : "opacity-80"}
+                `}
                 alt=""
               />
             ))}
