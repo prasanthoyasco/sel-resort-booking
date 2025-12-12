@@ -38,7 +38,7 @@ export default function StayHeaderGallery() {
           rounded-2xl 
           overflow-hidden 
           p-2 sm:p-4 
-          bg-white
+          bg-transprent
         "
       >
         {/* Main Big Image */}

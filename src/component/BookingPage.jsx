@@ -86,25 +86,25 @@ export default function BookingPage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 text-[14px] sm:text-[15px] text-gray-700">
               <div className="flex items-center gap-2">
                 <div className="p-2 bg-gray-100 rounded-md">
-                  <Users size={20} />
+                  <Users size={20} className="text-[#758dc2]" />
                 </div>
                 6 guests
               </div>
               <div className="flex items-center gap-2">
                 <div className="p-2 bg-gray-100 rounded-md">
-                  <Bed size={20} />
+                  <Bed size={20} className="text-[#758dc2]" />
                 </div>
                 5 beds
               </div>
               <div className="flex items-center gap-2">
                 <div className="p-2 bg-gray-100 rounded-md">
-                  <Bath size={20} />
+                  <Bath size={20} className="text-[#758dc2]" />
                 </div>
                 3 baths
               </div>
               <div className="flex items-center gap-2">
                 <div className="p-2 bg-gray-100 rounded-md">
-                  <Home size={20} />
+                  <Home size={20} className="text-[#758dc2]" />
                 </div>
                 10 bedrooms
               </div>
@@ -121,7 +121,7 @@ export default function BookingPage() {
         {/* On mobile/tablet → normal flow (NOT pinned) */}
         {/* On desktop → pinned using ScrollTrigger */}
         <div className="lg:col-span-1">
-          <div className="booking-box lg:sticky lg:top-[140px] w-full">
+          <div className="booking-box lg:sticky lg:top-2.5 w-full">
             <Bookingform />
           </div>
         </div>

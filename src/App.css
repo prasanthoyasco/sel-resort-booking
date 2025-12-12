@@ -4,6 +4,12 @@
   font-family: 'Instrument Sans', sans-serif;
   background-color: #fbfbfd;
 }
+.btn-bg-primery{
+  background-color: #FFC299;
+}
+.btn-bg-primery:hover{
+  background-color: #ffb47d;
+}
 button{
   cursor: pointer;
 }

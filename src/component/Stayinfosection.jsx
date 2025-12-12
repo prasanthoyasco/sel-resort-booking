@@ -7,7 +7,7 @@ const Stayinfosection = () => {
       <h2 className="text-xl font-semibold">Stay information</h2>
 
       {/* Description */}
-      <div className="leading-relaxed text-neutral-700 dark:text-neutral-300">
+      <div className="leading-relaxed text-gray-700">
         <span>
           Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides
           accommodation, an outdoor swimming pool, a bar, a shared lounge, a
@@ -29,12 +29,12 @@ const Stayinfosection = () => {
       </div>
 
       {/* Divider */}
-      <hr className="w-full border-t border-neutral-950/10 dark:border-white/10" />
+      <hr className="w-full border-t border-gray-900/10" />
 
       {/* Room Rates Title */}
       <div>
         <h2 className="text-xl font-semibold">Room Rates</h2>
-        <h3 className="mt-2.5 text-base leading-6 text-neutral-700 dark:text-neutral-300">
+        <h3 className="mt-2.5 text-base leading-6 text-gray-700 ">
           Prices may increase on weekends or holidays
         </h3>
       </div>
@@ -43,13 +43,13 @@ const Stayinfosection = () => {
       <dl className=" grid grid-cols-2 gap-6 lg:gap-0 lg:grid-cols-1 text-base leading-6 sm:grid-cols-[min(50%,--spacing(80))_auto]">
         {/* Mon–Thu */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5  pt-1 lg:pt-3 text-neutral-500 
-                   first:border-none sm:py-3 dark:border-white/5 dark:text-neutral-400"
+          className="col-start-1 border-t border-gray-900/5  pt-1 lg:pt-3 text-gray-500 
+                   first:border-none sm:py-3 dark:border-white/5"
         >
           Monday - Thursday
         </dt>
         <dd
-          className="pt-1 pb-3 text-neutral-950 sm:border-t sm:border-neutral-950/5 
+          className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5 
                    sm:py-3 dark:text-white dark:sm:border-white/5"
         >
           $199
@@ -57,13 +57,13 @@ const Stayinfosection = () => {
 
         {/* Fri–Sun */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-1 lg:pt-3 text-neutral-500
-                   sm:py-3 dark:border-white/5 dark:text-neutral-400"
+          className="col-start-1 border-t border-gray-950/5 pt-1 lg:pt-3 text-gray-500
+                   sm:py-3 dark:border-white/5 dark:text-gray-400"
         >
           Friday - Sunday
         </dt>
         <dd
-          className="pt-1 pb-3 text-neutral-950 sm:border-t sm:border-neutral-950/5
+          className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5
                    sm:py-3 dark:text-white dark:sm:border-white/5"
         >
           $219
@@ -71,13 +71,13 @@ const Stayinfosection = () => {
 
         {/* Monthly */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-1 lg:pt-3 text-neutral-500 
-                   sm:py-3 dark:border-white/5 dark:text-neutral-400"
+          className="col-start-1 border-t border-gray-950/5 pt-1 lg:pt-3 text-gray-500 
+                   sm:py-3 dark:border-white/5 dark:text-gray-400"
         >
           Rent by month
         </dt>
         <dd
-          className="pt-1 pb-3 text-neutral-950 sm:border-t sm:border-neutral-950/5
+          className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5
                    sm:py-3 dark:text-white dark:sm:border-white/5"
         >
           -8.34 %
@@ -85,13 +85,13 @@ const Stayinfosection = () => {
 
         {/* Min Nights */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-1 lg:pt-3 text-neutral-500 
-                   sm:py-3 dark:border-white/5 dark:text-neutral-400"
+          className="col-start-1 border-t border-gray-950/5 pt-1 lg:pt-3 text-gray-500 
+                   sm:py-3 dark:border-white/5 dark:text-gray-400"
         >
           Minimum number of nights
         </dt>
         <dd
-          className="pt-1 pb-3 text-neutral-950 sm:border-t sm:border-neutral-950/5
+          className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5
                    sm:py-3 dark:text-white dark:sm:border-white/5"
         >
           1 night
@@ -99,13 +99,13 @@ const Stayinfosection = () => {
 
         {/* Max Nights */}
         <dt
-          className="col-start-1 border-t border-neutral-950/5 pt-1 lg:pt-3 text-neutral-500
-                   sm:py-3 dark:border-white/5 dark:text-neutral-400"
+          className="col-start-1 border-t border-gray-950/5 pt-1 lg:pt-3 text-gray-500
+                   sm:py-3 dark:border-white/5 dark:text-gray-400"
         >
           Max number of nights
         </dt>
         <dd
-          className="pt-1 pb-3 text-neutral-950 sm:border-t sm:border-neutral-950/5
+          className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5
                    sm:py-3 dark:text-white dark:sm:border-white/5"
         >
           90 nights
