@@ -56,7 +56,7 @@ const GallerySection = () => {
 
       {/* Button */}
       <div className="flex justify-center absolute -bottom-40 w-full">
-        <Link to={"/gallery"} className="px-8 py-3 rounded-full bg-black text-white hover:bg-gray-800 transition shadow-lg">
+        <Link to={"/gallery"} onClick={() => window.scrollTo(0, 0,"smooth")}  className="px-8 py-3 rounded-full bg-black text-white hover:bg-gray-800 transition shadow-lg">
           View All
         </Link>
       </div>

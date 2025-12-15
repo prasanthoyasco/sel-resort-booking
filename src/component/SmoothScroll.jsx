@@ -14,7 +14,16 @@ export default function SmoothScroll({ children }) {
       effects: true,
     });
 
+    // Scroll to top when a certain event occurs
+    const scrollToTop = () => {
+      smoother.scrollTo(0, true); // true = immediate, no animation
+    };
+
+    // Example: listen to custom event
+    window.addEventListener("scrollToTop", scrollToTop);
+
     return () => {
+      window.removeEventListener("scrollToTop", scrollToTop);
       if (smoother) smoother.kill();
     };
   }, []);

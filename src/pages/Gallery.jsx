@@ -4,6 +4,7 @@ import InfiniteGallery from '../component/InfiniteGallery'
 import Footer from '../component/Footer'
 
 export default function  Gallery (){
+    
   return (
     <>
     <GalleryHero/>
