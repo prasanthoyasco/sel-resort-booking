@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { Popover, PopoverButton, PopoverPanel, Transition } from "@headlessui/react";
 import { UserPlusIcon } from "@heroicons/react/24/outline";
-import { Minus, Plus } from "lucide-react";
+import { ChevronRight, Minus, Plus } from "lucide-react";
 
 export default function GuestsInput({ className }) {
   const [adults, setAdults] = useState(2);
@@ -11,7 +11,7 @@ export default function GuestsInput({ className }) {
   const total = adults + children + infants;
 
   return (
-    <Popover className={`relative self-end flex ${className}`}>
+    <Popover className={`relative lg:self-end flex ${className}`}>
       {({ open }) => (
         <>
           <PopoverButton
@@ -26,6 +26,12 @@ export default function GuestsInput({ className }) {
               <div className="font-semibold">{total} Guests</div>
               <span className="text-neutral-400 text-xs">Add guests</span>
             </div>
+                        <button
+        className="my-auto ms-auto py-1 px-1 flex justify-end items-end rounded-full bg-[#eea159] md:hidden"
+        role="submit"
+      >
+      <ChevronRight />
+      </button>
           </PopoverButton>
 
           <Transition
@@ -59,6 +65,7 @@ export default function GuestsInput({ className }) {
                   </div>
                 </div>
               ))}
+              
             </PopoverPanel>
           </Transition>
         </>

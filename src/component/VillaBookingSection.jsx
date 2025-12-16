@@ -63,7 +63,7 @@ export default function VillaBookingSection() {
         </div>
 
         {/* CONTENT */}
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between py-8 sm:py-20 px-16 h-full gap-2 lg:gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between py-8 sm:py-20 px-16 h-full gap-2 lg:gap-10">
           <div className="text-white max-w-xl" data-aos="fade-right">
             <h2 className="text-3xl md:text-5xl font-bold leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] ">
               Come As You Are And We Will Take Care Of The Rest
@@ -71,7 +71,7 @@ export default function VillaBookingSection() {
           </div>
 
           <div className="mt-0 md:mt-0" data-aos="fade-left">
-            <div className="w-[360px] md:w-[420px] bg-white/30 backdrop-blur-2xl p-8 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
+            <div className="w-[360px] md:w-[520px] lg:w-[420px] bg-white/30 backdrop-blur-2xl md:p-8 p-2 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
               <h3 className="text-center text-white text-xl font-semibold mb-6">
                 See Available Villas
               </h3>

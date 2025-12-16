@@ -42,9 +42,7 @@ export default function VisionMissionSection() {
             data-aos-delay="200"
             className="text-gray-700 mt-6 text-base md:text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed"
           >
-            Our company helps creators build scalable brands through strategic
-            guidance, operational support, and diversified monetization
-            opportunities.
+To be a serene sanctuary where nature, comfort, and soulful experiences come together—offering every guest a peaceful escape and unforgettable moments at Sel Resort.
           </p>
 
           <div
@@ -94,9 +92,7 @@ export default function VisionMissionSection() {
             data-aos-delay="200"
             className="text-gray-700 mb-6 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed order-3"
           >
-            Our company helps creators build scalable brands through strategic
-            guidance, operational support, and diversified monetization
-            opportunities.
+To provide warm hospitality, thoughtfully designed stays, and immersive nature-inspired experiences that rejuvenate the mind, body, and soul—while preserving the beauty and harmony of our surroundings.
           </p>
 
           {/* Mission Title */}

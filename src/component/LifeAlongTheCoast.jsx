@@ -59,7 +59,7 @@ export default function LifeAlongTheCoast() {
   }, [activeVilla]);
 
   return (
-    <section className="bg-white py-28 px-40">
+    <section className="bg-white lg:py-28 lg:px-40 px-5 py-10">
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-20">
         {/* LEFT CONTENT */}
         <div className="flex flex-col gap-10">

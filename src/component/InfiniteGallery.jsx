@@ -8,23 +8,33 @@ export default function InfiniteGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Split images into repeating rows: 2 large → 3 medium → repeat
-  const getRows = (images) => {
-    const rows = [];
-    let i = 0;
-    while (i < images.length) {
-      // 2 large images
-      if (i < images.length) {
-        rows.push({ type: "large", items: images.slice(i, i + 2) });
-        i += 2;
-      }
-      // 3 medium images
-      if (i < images.length) {
-        rows.push({ type: "medium", items: images.slice(i, i + 3) });
-        i += 3;
-      }
+const getRows = (images) => {
+  const rows = [];
+  let i = 0;
+  let largeToggle = true; // controls 4-8 vs 8-4
+
+  while (i < images.length) {
+    // Large row
+    rows.push({
+      type: largeToggle ? "large" : "large-reverse",
+      items: images.slice(i, i + 2),
+    });
+    i += 2;
+    largeToggle = !largeToggle;
+
+    // Medium row
+    if (i < images.length) {
+      rows.push({
+        type: "medium",
+        items: images.slice(i, i + 3),
+      });
+      i += 3;
     }
-    return rows;
-  };
+  }
+
+  return rows;
+};
+
 
   const rows = getRows(images);
 
@@ -41,61 +51,85 @@ export default function InfiniteGallery() {
         </div>
 
         <div className="grid gap-8">
-          {rows.map((row, idx) => {
-            if (row.type === "large") {
-              return (
-                <div key={idx} className="grid md:grid-cols-12 gap-4">
-                  {row.items[0] && (
-                    <div className="md:col-span-4 h-[404px] hover:h-[390px] hover:w-[98%] transition-all duration-700 w-full overflow-hidden">
-                      <img
-                        src={row.items[0].src}
-                        alt="Gallery"
-                        className="object-cover w-full h-full rounded-3xl transition-all duration-700 hover:rounded-2xl cursor-pointer"
-                        onClick={() => {
-                          setCurrentIndex(images.indexOf(row.items[0]));
-                          setLightboxOpen(true);
-                        }}
-                      />
-                    </div>
-                  )}
-                  {row.items[1] && (
-                    <div className="md:col-span-8 h-[404px] hover:h-[390px] hover:w-[98%] transition-all duration-700 w-full overflow-hidden">
-                      <img
-                        src={row.items[1].src}
-                        alt="Gallery"
-                        className="object-cover w-full h-full rounded-3xl transition-all duration-700 hover:rounded-2xl cursor-pointer"
-                        onClick={() => {
-                          setCurrentIndex(images.indexOf(row.items[1]));
-                          setLightboxOpen(true);
-                        }}
-                      />
-                    </div>
-                  )}
-                </div>
-              );
-            } else {
-              return (
-                <div key={idx} className="grid md:grid-cols-3 grid-cols-1 gap-4">
-                  {row.items.map((img, i) => (
-                    <div
-                      key={i}
-                      className="h-[277px] hover:h-[260px] hover:w-[98%] transition-all duration-700 w-full rounded-3xl overflow-hidden"
-                    >
-                      <img
-                        src={img.src}
-                        alt="Gallery"
-                        className="object-cover w-full h-full rounded-3xl transition-all duration-700 hover:rounded-2xl cursor-pointer"
-                        onClick={() => {
-                          setCurrentIndex(images.indexOf(img));
-                          setLightboxOpen(true);
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
-              );
-            }
-          })}
+{rows.map((row, idx) => {
+
+  // 4-8 layout
+  if (row.type === "large") {
+    return (
+      <div key={idx} className="grid md:grid-cols-12 gap-4">
+        <div className="md:col-span-8 h-[404px] overflow-hidden">
+          <img
+            src={row.items[0].src}
+            className="object-cover w-full h-full rounded-3xl cursor-pointer"
+            onClick={() => {
+              setCurrentIndex(images.indexOf(row.items[0]));
+              setLightboxOpen(true);
+            }}
+          />
+        </div>
+
+        <div className="md:col-span-4 h-[404px] overflow-hidden">
+          <img
+            src={row.items[1].src}
+            className="object-cover w-full h-full rounded-3xl cursor-pointer"
+            onClick={() => {
+              setCurrentIndex(images.indexOf(row.items[1]));
+              setLightboxOpen(true);
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // 8-4 layout (reverse)
+  if (row.type === "large-reverse") {
+    return (
+      <div key={idx} className="grid md:grid-cols-12 gap-4">
+        <div className="md:col-span-4 h-[404px] overflow-hidden">
+          <img
+            src={row.items[0].src}
+            className="object-cover w-full h-full rounded-3xl cursor-pointer"
+            onClick={() => {
+              setCurrentIndex(images.indexOf(row.items[0]));
+              setLightboxOpen(true);
+            }}
+          />
+        </div>
+
+        <div className="md:col-span-8 h-[404px] overflow-hidden">
+          <img
+            src={row.items[1].src}
+            className="object-cover w-full h-full rounded-3xl cursor-pointer"
+            onClick={() => {
+              setCurrentIndex(images.indexOf(row.items[1]));
+              setLightboxOpen(true);
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // 3 grid layout
+  return (
+    <div key={idx} className="grid md:grid-cols-3 gap-4">
+      {row.items.map((img, i) => (
+        <div key={i} className="h-[277px] overflow-hidden rounded-3xl">
+          <img
+            src={img.src}
+            className="object-cover w-full h-full cursor-pointer"
+            onClick={() => {
+              setCurrentIndex(images.indexOf(img));
+              setLightboxOpen(true);
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+})}
+
         </div>
       </div>
 

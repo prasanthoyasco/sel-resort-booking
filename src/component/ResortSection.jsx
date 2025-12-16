@@ -133,9 +133,9 @@ export default function ResortSection() {
                     duration: 0.6,
                     ease: "easeInOut",
                   }}
-                  className="lg:col-span-2 bg-white/30 backdrop-blur-sm rounded-3xl shadow-lg p-2 flex flex-col md:flex-row gap-4 cursor-pointer"
+                  className="lg:col-span-2 bg-white/30 backdrop-blur-sm rounded-3xl shadow-lg p-2 flex flex-col lg:flex-row gap-4 cursor-pointer"
                 >
-                  <div className="w-full md:w-1/2 relative rounded-2xl overflow-hidden">
+                  <div className="w-full lg:w-1/2 relative rounded-2xl overflow-hidden">
                     <img
                       src={card.img}
                       className="w-full h-full object-cover"

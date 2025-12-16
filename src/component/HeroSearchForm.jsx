@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import StaySearchForm from "./StaySearchForm";
-import { ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
 const HeroSearchForm = ({
   className = "",
@@ -8,12 +8,48 @@ const HeroSearchForm = ({
 }) => {
   const tabs = ["The Farm Retreat", "Chetinadu Farms", "Safari Farms"];
   const [tabActive, setTabActive] = useState(currentTab);
-
+const [open, setOpen] = useState(false);
   return (
-    <div className={`w-full max-w-6xl py-5 lg:py-3 px-1 ${className}`}>
+    <div className={`w-full max-w-6xl py-2 md:py-3 px-1 ${className}`}>
       <h2 className="text-white text-center mb-4 font-bold text-2xl">Select Your Stay with Sel</h2>
       {/* TABS */}
-      <ul className=" flex space-x-5 sm:space-x-8 lg:space-x-11 overflow-x-auto">
+      <div className="md:hidden mb-4">
+        <div
+          onClick={() => setOpen(!open)}
+          className="flex items-center justify-between bg-white px-5 py-3 rounded-full cursor-pointer shadow-md"
+        >
+          <span className="font-semibold text-gray-800">{tabActive}</span>
+          <ChevronDown
+            size={18}
+            className={`transition-transform ${
+              open ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+
+        {open && (
+          <div className="mt-3 bg-white rounded-2xl shadow-lg overflow-hidden">
+            {tabs.map((tab) => (
+              <div
+                key={tab}
+                onClick={() => {
+                  setTabActive(tab);
+                  setOpen(false);
+                }}
+                className={`px-5 py-4 cursor-pointer transition ${
+                  tab === tabActive
+                    ? "bg-[#fff5eb] text-[#eea159] font-bold"
+                    : "hover:bg-gray-100"
+                }`}
+              >
+                {tab}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <ul className=" md:flex hidden space-x-5 sm:space-x-8 lg:space-x-11 overflow-x-auto justify-center">
         {tabs.map((tab, index) => {
           const active = tab === tabActive;
           return (

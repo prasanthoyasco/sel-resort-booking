@@ -59,7 +59,7 @@ export default function HeroBanner() {
           </h1>
         </div>
         {/* ---------- Booking Form ---------- */}
-        <div className="absolute z-200 bg-white/30 backdrop-blur-xl px-3 rounded-2xl bottom-4 left-1/2 -translate-x-1/2 pointer-events-auto">
+        <div className="absolute w-[75%] md:w-[85%] lg:w-auto  z-200 bg-white/30 backdrop-blur-xl md:px-3 px-1 rounded-2xl bottom-4 left-1/2 -translate-x-1/2 pointer-events-auto">
           <HeroSearchForm />
         </div>
 

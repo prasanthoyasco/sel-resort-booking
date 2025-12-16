@@ -37,7 +37,7 @@ const StayDatesRangeInput = ({ className = "", fieldClassName = "" }) => {
         <>
           {/* BUTTON */}
           <PopoverButton
-            className={`flex-1 flex items-center gap-3 px-8 py-3 cursor-pointer outline-0 ${fieldClassName}`}
+            className={`flex-1 flex items-center gap-3 md:px-8 px-5 py-3 cursor-pointer outline-0 ${fieldClassName}`}
           >
             <CalendarIcon className="w-6 h-6 text-neutral-500" />
             <div className="text-left">

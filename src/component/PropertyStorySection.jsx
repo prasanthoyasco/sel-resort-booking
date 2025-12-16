@@ -128,7 +128,7 @@ const PropertyStorySection = () => {
                     src={slide.leftImage}
                     alt=""
                     style={{ transform: `scale(${leftScale})` }}
-                    className="w-full h-[620px] object-cover transition-transform duration-500 ease-out"
+                    className="w-full md:h-[620px] h-[40vh] object-cover transition-transform duration-500 ease-out"
                   />
                 </SwiperSlide>
               ))}
@@ -206,7 +206,7 @@ const PropertyStorySection = () => {
                     src={slide.rightImage}
                     alt=""
                     style={{ transform: `scale(${rightScale})` }}
-                    className="w-full h-[620px] object-cover transition-transform duration-500 ease-out"
+                    className="w-full md:h-[620px] h-[40vh] object-cover transition-transform duration-500 ease-out"
                   />
                 </SwiperSlide>
               ))}
