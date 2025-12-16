@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import ReviewSlider from "../component/ReviewSlider";
 import RestaurantResortSection from "../component/RestaurantResortSection";
 import GallerySection from "../component/GallerySection";
+import PropertyStorySection from "../component/PropertyStorySection";
 
 const Home = () => {
   useEffect(() => {
@@ -32,7 +33,8 @@ const Home = () => {
       <ResortSection />
       <VillaBookingSection />
       <VisionMissionSection />
-      <RestaurantResortSection />
+      <PropertyStorySection/>
+      {/* <RestaurantResortSection /> */}
       <GallerySection/>
       <ReviewSection />
       <ReviewSlider />

@@ -7,6 +7,7 @@ import SmoothScroll from "./component/SmoothScroll.jsx";
 import Navigation from "./component/Navigation.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import ScrollRestoration from "./component/ScrollRestoration.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 function About() {
   return <h1>About Page</h1>;
@@ -30,6 +31,8 @@ function App() {
           <Route path="/stay/:name" element={<StaylistPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
+          {/* 404 route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </SmoothScroll>
     </Router>

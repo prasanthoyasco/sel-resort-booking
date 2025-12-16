@@ -50,7 +50,7 @@ export default function RestaurantResortSection() {
   }, []);
 
   return (
-    <section className="w-full relative pb-10">
+    <section className="w-full flex relative pb-10">
       {/* Grid Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -63,18 +63,27 @@ export default function RestaurantResortSection() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-1/2 mx-auto px-6 relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-4xl font-bold mb-4">Our Restaurants & Resorts</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+        <div className="text-left mb-12" data-aos="fade-up">
+          <div className="relative inline-block w-full">
+            {/* Line */}
+            <span className="absolute left-0 top-1/2 w-full h-px bg-gray-300"></span>
+
+            {/* Text */}
+            <h2 className="relative text-md text-gray-600 bg-white pr-4 inline-block">
+              Our Restaurants & Resorts
+            </h2>
+          </div>
+
+          <p className="text-4xl font-bold max-w-2xl mt-4">
             Experience premium dining and luxurious stay options crafted to give
             you unforgettable moments.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {restaurantData.map((item) => (
             <div
               key={item.id}
@@ -103,7 +112,51 @@ export default function RestaurantResortSection() {
               </div>
             </div>
           ))}
+        </div> */}
+      </div>
+      <div className="max-w-1/2 mx-auto px-6 relative z-10">
+        {/* Section Title */}
+        <div className="text-left mb-12" data-aos="fade-up">
+          <h2 className="text-md text-gray-600 bg-white pr-10 inline-block mb-4">
+            Our Restaurants & Resorts
+          </h2>
+          <p className="text-4xl font-bold max-w-2xl">
+            Experience premium dining and luxurious stay options crafted to give
+            you unforgettable moments.
+          </p>
         </div>
+
+        {/* Cards */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {restaurantData.map((item) => (
+            <div
+              key={item.id}
+              className={`bg-neutral-100 border border-gray-200 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition p-5`}
+              data-aos="fade-up"
+              data-aos-delay={item.aosDelay}
+            >
+              <img
+                src={item.img}
+                alt={item.name}
+                className="w-full h-56 object-cover rounded-xl"
+              />
+              <h3 className="text-2xl font-semibold mt-5">{item.name}</h3>
+              <p className="text-gray-600 mt-2">{item.description}</p>
+
+              <div className="mt-4 space-y-2 text-gray-700">
+                <p className="flex items-center gap-2">
+                  <MapPin size={18} className="text-[#eea159]" /> {item.location}
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone size={18} className="text-[#eea159]" /> {item.phone}
+                </p>
+                <p className="flex items-center gap-2">
+                  <CalendarDays size={18} className="text-[#eea159]" /> {item.booking}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div> */}
       </div>
     </section>
   );
