@@ -68,11 +68,11 @@ export default function ResortSection() {
 
   return (
     <section
-      className="pt-16 pb-5 md:py-20"
+      className="pt-16 pb-5 md:py-10"
       data-aos="fade-up"
       data-aos-delay="50"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 sm:py-8 bg-[#eea159] rounded-xl">
         {/* TOP SECTION */}
         <div
           className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10 mb-14"
@@ -83,7 +83,7 @@ export default function ResortSection() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl sm:text-start text-center font-semibold mb-4">
               Life Along The Coast
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg sm:text-start text-center">
+            <p className="text-gray-800 text-base sm:text-lg sm:text-start text-center">
               The villas were built with low-impact methods, following the
               land’s natural curves to blend seamlessly into the coastal
               landscape.
@@ -133,7 +133,7 @@ export default function ResortSection() {
                     duration: 0.6,
                     ease: "easeInOut",
                   }}
-                  className="lg:col-span-2 bg-white/30 backdrop-blur-sm rounded-3xl shadow-lg p-2 flex flex-col lg:flex-row gap-4 cursor-pointer"
+                  className="lg:col-span-2 bg-white backdrop-blur-sm rounded-3xl shadow-lg p-2 flex flex-col lg:flex-row gap-4 cursor-pointer"
                 >
                   <div className="w-full lg:w-1/2 relative rounded-2xl overflow-hidden">
                     <img

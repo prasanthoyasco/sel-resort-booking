@@ -15,6 +15,7 @@ import ReviewSlider from "../component/ReviewSlider";
 import RestaurantResortSection from "../component/RestaurantResortSection";
 import GallerySection from "../component/GallerySection";
 import PropertyStorySection from "../component/PropertyStorySection";
+import AboutUsNew from "../component/AboutUsNew";
 
 const Home = () => {
   useEffect(() => {
@@ -29,7 +30,8 @@ const Home = () => {
     <>
       {/* <Navigation /> */}
       <HeroBanner />
-      <AboutUs />
+      {/* <AboutUs /> */}
+      <AboutUsNew />
       <ResortSection />
       <VillaBookingSection />
       <VisionMissionSection />
