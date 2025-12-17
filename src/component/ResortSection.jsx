@@ -72,18 +72,18 @@ export default function ResortSection() {
       data-aos="fade-up"
       data-aos-delay="50"
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-10 bg-[#eea159] rounded-3xl">
+      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-10 bg-[#232426] rounded-3xl">
         {/* TOP SECTION */}
         <div
-          className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10 mb-14"
+          className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 mb-14"
           data-aos="fade-up"
           data-aos-delay="100"
         >
           <div className="max-w-xl">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl sm:text-start text-center font-semibold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl text-white sm:text-start text-center font-semibold mb-4">
               Life Along The Coast
             </h2>
-            <p className="text-gray-800 text-base sm:text-lg sm:text-start text-center">
+            <p className="text-gray-200 text-base sm:text-lg sm:text-start text-center">
               The villas were built with low-impact methods, following the
               land’s natural curves to blend seamlessly into the coastal
               landscape.
@@ -92,22 +92,22 @@ export default function ResortSection() {
 
           {/* BUTTON */}
           <button
-            className="group bg-black text-white px-6 py-3 rounded-full flex items-center
-            gap-4 relative overflow-hidden self-start mx-auto md:mx-0 hover:bg-gray-900 transition"
+            className="group self-center bg-white text-black px-6 py-3 rounded-full flex items-center
+            gap-4 relative overflow-hidden mx-auto md:mx-0 hover:bg-gray-100 transition"
             data-aos="zoom-in"
             data-aos-once="true"
             data-aos-delay="150"
           >
             <img
               src="/icons/chevron-right.svg"
-              className="absolute invert left-5 w-4 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+              className="absolute left-5 w-4 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
             />
             <span className="relative z-10 transition-all duration-300 group-hover:translate-x-6">
               View All Available Villas
             </span>
             <img
               src="/icons/chevron-right.svg"
-              className="invert w-4 relative transition-all duration-300 group-hover:translate-x-4 group-hover:opacity-0"
+              className="w-4 relative transition-all duration-300 group-hover:translate-x-4 group-hover:opacity-0"
             />
           </button>
         </div>
@@ -195,56 +195,89 @@ export default function ResortSection() {
                     </div>
 
                     <div className="flex items-center gap-3 group cursor-pointer">
-                      <Link to={`/stay/${card.title}`} className="flex items-center gap-3 group cursor-pointer" ><span className="font-medium">Discover More</span>
-                      <div className="w-10 h-10 rounded-full bg-black/80 flex items-center justify-center overflow-hidden transition group-hover:bg-white">
-                        <img
-                          src="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/68512e74aec665cf47b7a252_Vector.svg"
-                          className="w-4 absolute transition opacity-100 group-hover:opacity-0 group-hover:translate-x-4"
-                        />
-                        <img
-                          src="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/68512e74aec665cf47b7a252_Vector.svg"
-                          className="w-4 absolute opacity-0 -translate-x-4 transition group-hover:opacity-100 group-hover:translate-x-0 invert"
-                        />
-                      </div>
+                      <Link
+                        to={`/stay/${card.title}`}
+                        className="flex items-center gap-3 group cursor-pointer"
+                      >
+                        <span className="font-medium">Discover More</span>
+                        <div className="w-10 h-10 rounded-full bg-black/80 flex items-center justify-center overflow-hidden transition group-hover:bg-white">
+                          <img
+                            src="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/68512e74aec665cf47b7a252_Vector.svg"
+                            className="w-4 absolute transition opacity-100 group-hover:opacity-0 group-hover:translate-x-4"
+                          />
+                          <img
+                            src="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/68512e74aec665cf47b7a252_Vector.svg"
+                            className="w-4 absolute opacity-0 -translate-x-4 transition group-hover:opacity-100 group-hover:translate-x-0 invert"
+                          />
+                        </div>
                       </Link>
                     </div>
                   </motion.div>
                 </motion.div>
               ) : (
-                /* ⭐ SMALL CARD WITH AOS */
                 <motion.div
                   key={index}
                   layout
                   transition={{
                     layout: { duration: 0.6, ease: "easeInOut" },
                     duration: 0.6,
-                    ease: "easeInOut",
                   }}
                   onClick={() => setActiveIndex(index)}
-                  className="rounded-3xl overflow-hidden shadow-lg relative cursor-pointer"
+                  className="group shadow-lg relative rounded-3xl z-10 overflow-hidden cursor-pointer h-[450px] bg-[#232426]"
                 >
-                  <img src={card.img} className="w-full h-full object-cover" />
+                  <img
+                    src={card.img}
+                    className="w-full h-full object-cover rounded-3xl transition-transform duration-500 group-hover:scale-105"
+                    alt={card.title}
+                  />
 
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    {card.features?.map((item, i) => (
+                  {/* Top Badges */}
+                  <div className="absolute top-5 left-5 flex flex-wrap gap-2">
+                    {card.features?.slice(0, 2).map((item, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs"
+                        className="px-3 py-1 bg-white/20 backdrop-blur-md text-white text-[10px] uppercase tracking-wider rounded-full border border-white/10"
                       >
                         {item}
                       </span>
                     ))}
                   </div>
 
-                  <div className="absolute bottom-6 left-6 text-white flex items-center gap-3">
-                    <h3 className="text-2xl font-semibold">{card.title}</h3>
-                    <div className="w-10 h-10 rounded-full bg-white/70 backdrop-blur flex items-center justify-center">
-                      <img
-                        src="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/68512e74aec665cf47b7a252_Vector.svg"
-                        className="w-4 invert"
-                      />
+                  {/* Title text positioned specifically to the left of the notch */}
+                  <div className="absolute bottom-6 left-6 z-10">
+                    <h3 className="text-white text-2xl font-semibold leading-tight">
+                      {card.title}
+                    </h3>
+                  </div>
+
+                  {/* THE ARROW CURVE WRAPPER */}
+                  <div className="absolute bottom-0 right-0 z-50">
+                    {/* This is the dark "notch" container */}
+                    <div className="relative bg-[#232426] pt-4 pl-4 rounded-tl-[2.5rem]">
+                      {/* Concave Curve: Top Side */}
+                      <div className="absolute -top-5 right-0 w-5 h-5 overflow-hidden">
+                        <div className="w-full h-full rounded-br-[20px] shadow-[10px_10px_0_10px_#232426]" />
+                      </div>
+
+                      {/* Concave Curve: Left Side */}
+                      <div className="absolute bottom-0 -left-5 w-5 h-5 overflow-hidden">
+                        <div className="w-full h-full rounded-br-[20px] shadow-[10px_10px_0_10px_#232426]" />
+                      </div>
+
+                      {/* The White Arrow Button */}
+                      <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center transition-transform duration-300 shadow-sm mr-2px mb-2px">
+                        <img
+                          src="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/68512e74aec665cf47b7a252_Vector.svg"
+                          className="w-4 -rotate-45 transition-transform duration-300 group-hover:rotate-0"
+                          style={{ filter: "brightness(0)" }}
+                          alt="arrow"
+                        />
+                      </div>
                     </div>
                   </div>
+
+                  {/* Bottom Gradient for Contrast */}
+                  {/* <div className="absolute inset-0 rounded-[2.5rem] bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" /> */}
                 </motion.div>
               );
             })}

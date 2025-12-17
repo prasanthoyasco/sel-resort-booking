@@ -35,6 +35,7 @@ const GallerySectionNew = () => {
   const zoomImage = useRef(null);
   const textContent = useRef(null);
   const gridWrapper = useRef(null);
+  const galleryHeading = useRef(null); // New Ref for the heading
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -49,11 +50,14 @@ const GallerySectionNew = () => {
         },
       });
 
-      tl.to(gridWrapper.current, { scale: 1.1, duration: 2 }, 0)
+      tl.to(galleryHeading.current, { 
+          opacity: 0, 
+          y: -50, 
+          duration: 0.5 
+        }, 0) // Fade out heading immediately
+        .to(gridWrapper.current, { scale: 1.1, duration: 2 }, 0)
         .to(".peripheral-img", { opacity: 0, scale: 0.8, duration: 1 }, 0)
-        .to(
-          zoomImage.current,
-          {
+        .to(zoomImage.current, {
             width: "100vw",
             height: "100vh",
             maxWidth: "none",
@@ -61,47 +65,46 @@ const GallerySectionNew = () => {
             borderRadius: "0px",
             duration: 2,
             ease: "power2.inOut",
-          },
-          0
-        )
+          }, 0)
         .to(textContent.current, { opacity: 1, y: 0, duration: 1 }, "-=1");
     }, mainContainer);
     return () => ctx.revert();
   }, []);
 
   return (
-    <div className="bg-black">
+    <div className="bg-transparent">
       <section
         ref={mainContainer}
         className="relative h-screen w-full overflow-hidden z-10 flex items-center justify-center"
         style={{ backgroundColor: galleryData.background }}
       >
-        {/* THE GRID SYSTEM - Scaling sizes for mobile/tablet */}
+        {/* NEW: PRE-GRID HEADING */}
+        <div 
+          ref={galleryHeading} 
+          className="absolute top-[45%] md:top-[45%] z-20 text-center w-full"
+        >
+          <h2 className="text-white/40 text-sm md:text-base uppercase tracking-[0.3em] font-medium mb-2">
+            Experience
+          </h2>
+          <h3 className="text-white text-4xl md:text-6xl">
+            Our Resort Gallery
+          </h3>
+        </div>
+
+        {/* THE GRID SYSTEM */}
         <div
           ref={gridWrapper}
           className="relative w-full max-w-[1440px] px-4 md:px-10 flex flex-col gap-3 md:gap-6"
         >
           {/* Top Row */}
           <div className="flex justify-center gap-3 md:gap-6 items-end h-[20vh] md:h-[27vh]">
-            <img
-              src={galleryData.gridImages.top[0]}
-              className="peripheral-img w-[40%] h-full object-cover rounded-md"
-              alt=""
-            />
-            <img
-              src={galleryData.gridImages.top[1]}
-              className="peripheral-img w-[30%] h-[90%] object-cover rounded-md"
-              alt=""
-            />
+            <img src={galleryData.gridImages.top[0]} className="peripheral-img w-[40%] h-full object-cover rounded-md shadow-lg" alt="" />
+            <img src={galleryData.gridImages.top[1]} className="peripheral-img w-[30%] h-[90%] object-cover rounded-md shadow-lg" alt="" />
           </div>
 
           {/* Middle Row */}
           <div className="flex justify-center gap-3 md:gap-6 items-center h-[25vh] md:h-[30vh]">
-            <img
-              src={galleryData.gridImages.middle[0]}
-              className="peripheral-img w-[20%] h-[90%] object-cover rounded-md"
-              alt=""
-            />
+            <img src={galleryData.gridImages.middle[0]} className="peripheral-img w-[20%] h-[90%] object-cover rounded-md shadow-lg" alt="" />
             <div className="relative z-20 shrink-0 overflow-hidden">
               <img
                 ref={zoomImage}
@@ -109,32 +112,23 @@ const GallerySectionNew = () => {
                 className="w-[55vw] md:w-[45vw] h-[25vh] md:h-[35vh] object-cover rounded-xl md:rounded-2xl shadow-2xl"
                 alt="Main"
               />
-              {/* <div className="absolute inset-0 bg-black/10 pointer-events-none rounded-xl md:rounded-2xl" /> */}
             </div>
-            <img
-              src={galleryData.gridImages.middle[1]}
-              className="peripheral-img w-[20%] h-[90%] object-cover rounded-md"
-              alt=""
-            />
+            <img src={galleryData.gridImages.middle[1]} className="peripheral-img w-[20%] h-[90%] object-cover rounded-md shadow-lg" alt="" />
           </div>
 
           {/* Bottom Row */}
           <div className="flex justify-center h-[20vh] md:h-[30vh]">
-            <img
-              src={galleryData.gridImages.bottom}
-              className="peripheral-img w-[50%] h-full object-cover rounded-md"
-              alt=""
-            />
+            <img src={galleryData.gridImages.bottom} className="peripheral-img w-[50%] h-full object-cover rounded-md shadow-lg" alt="" />
           </div>
         </div>
 
-        {/* OVERLAY CONTENT - Responsive Layout */}
+        {/* OVERLAY CONTENT (Fades in after zoom) */}
         <div
           ref={textContent}
           className="absolute inset-0 z-30 bg-black/20 flex flex-col md:flex-row items-center justify-center md:justify-between px-[5%] md:px-[8%] opacity-0 translate-y-10 pointer-events-none"
           style={{ backdropFilter: "blur(1.5px)" }}
         >
-          {/* Text Content - Center aligned on mobile, Left on Desktop */}
+          {/* Text Content */}
           <div className="order-2 md:order-1 flex flex-col items-center md:items-start max-w-2xl text-center md:text-left px-4">
             <h1 className="text-[#eceff7] text-3xl md:text-5xl lg:text-7xl font-bold mb-4 leading-tight">
               {galleryData.textContent.title}
@@ -147,38 +141,55 @@ const GallerySectionNew = () => {
             </button>
           </div>
 
-          {/* Windows Mobile Style Grid - Smaller on mobile, hidden on very small screens if needed */}
+          {/* Windows Mobile Style Grid */}
           <div className="order-1 md:order-2 w-48 h-48 md:w-72 md:h-72 grid grid-cols-2 grid-rows-2 gap-2 md:gap-3 pointer-events-auto mt-8 md:mt-0">
+
             <div className="col-span-1 row-span-1 bg-[#758dc2] overflow-hidden rounded-md relative shadow-lg">
+
               <LiveTile images={galleryData.gridImages.top} />
+
             </div>
+
             <div className="col-span-1 row-span-1 bg-[#c5a47c] overflow-hidden rounded-md relative shadow-lg">
+
               <LiveTile images={galleryData.gridImages.middle} />
+
             </div>
+
             <div className="col-span-2 row-span-1 bg-black/40 overflow-hidden rounded-md relative ">
+
               <video
+
                 autoPlay
+
                 muted
+
                 loop
+
                 onClick={() => navigate("/gallery")}
+
                 className="w-full h-full object-cover cursor-pointer"
+
               >
+
                 <source src={galleryData.textContent.video} type="video/mp4" />
+
               </video>
+
               <div
                 onClick={() => {
                   navigate("/gallery");
                 }}
                 className="cursor-pointer absolute bottom-2 left-2 text-[10px] uppercase tracking-widest text-white hover:text-white/60 font-bold"
               >
+
                 Live Preview
-              </div>
-            </div>
+                </div>
+                </div>
           </div>
         </div>
       </section>
 
-      {/* Spacer for scroll effect */}
       <section className="h-screen bg-transparent"></section>
     </div>
   );
