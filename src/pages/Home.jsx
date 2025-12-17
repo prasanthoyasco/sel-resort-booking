@@ -16,6 +16,8 @@ import RestaurantResortSection from "../component/RestaurantResortSection";
 import GallerySection from "../component/GallerySection";
 import PropertyStorySection from "../component/PropertyStorySection";
 import AboutUsNew from "../component/AboutUsNew";
+import ArchitecturalStatsSection from "../component/ArchitecturalStatsSection";
+import GallerySectionNew from "../component/GallerySectionNew";
 
 const Home = () => {
   useEffect(() => {
@@ -31,13 +33,18 @@ const Home = () => {
       {/* <Navigation /> */}
       <HeroBanner />
       {/* <AboutUs /> */}
+      <ArchitecturalStatsSection/>
       <AboutUsNew />
       <ResortSection />
       <VillaBookingSection />
       <VisionMissionSection />
       <PropertyStorySection/>
       {/* <RestaurantResortSection /> */}
-      <GallerySection/>
+      {/* <GallerySection/> */}
+      <GallerySectionNew/>
+      {/* <div className="h-130">
+
+      </div> */}
       <ReviewSection />
       <ReviewSlider />
       

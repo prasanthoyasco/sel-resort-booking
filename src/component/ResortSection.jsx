@@ -68,11 +68,11 @@ export default function ResortSection() {
 
   return (
     <section
-      className="pt-16 pb-5 md:py-10"
+      className="pt-16 pb-5 md:py-20"
       data-aos="fade-up"
       data-aos-delay="50"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 sm:py-8 bg-[#eea159] rounded-xl">
+      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-10 bg-[#eea159] rounded-3xl">
         {/* TOP SECTION */}
         <div
           className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10 mb-14"

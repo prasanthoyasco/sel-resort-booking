@@ -67,7 +67,7 @@ const ReviewSection = () => {
   };
 
   return (
-    <div className="px-2">
+    <div className="px-2 relative">
       <section
         className="py-10 bg-white relative rounded-xl"
         data-aos="fade-up"
