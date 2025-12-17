@@ -42,9 +42,7 @@ const Home = () => {
       {/* <RestaurantResortSection /> */}
       {/* <GallerySection/> */}
       <GallerySectionNew/>
-      {/* <div className="h-130">
-
-      </div> */}
+      <div className="h-90"/>
       <ReviewSection />
       <ReviewSlider />
       

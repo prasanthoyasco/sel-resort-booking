@@ -1,10 +1,36 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Navigate, useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
-
+const galleryData = {
+  background: "#758dc2", // Soft sand/linen color for a natural resort feel
+  mainZoomImage:
+    "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1200&q=80",
+  gridImages: {
+    top: [
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80", // Infinity Pool
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80", // Luxury Suite
+    ],
+    middle: [
+      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80", // Spa/Massage
+      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80", // Beach Sunset
+    ],
+    bottom:
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80", // Coastal View
+  },
+  textContent: {
+    title: "Escape to Unrivaled Serenity",
+    description:
+      "Discover a sanctuary where the ocean meets the sky. Immerse yourself in private villas, world-class spas, and curated experiences designed to rejuvenate your soul.",
+    cta: "Explore Our Suites ↗",
+    video:
+      "https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f%2F67bdaf1a42755b16fbdd0b47_7578544-uhd_3840_2160_30fps-transcode.mp4",
+  },
+};
 const GallerySectionNew = () => {
+  const navigate = useNavigate();
   const mainContainer = useRef(null);
   const zoomImage = useRef(null);
   const textContent = useRef(null);
@@ -16,177 +42,135 @@ const GallerySectionNew = () => {
         scrollTrigger: {
           trigger: mainContainer.current,
           start: "top top",
-          end: "+=100%",
+          end: "+=150%",
           scrub: 1,
           pin: true,
           pinSpacing: true,
         },
       });
 
-      tl.to(
-        gridWrapper.current,
-        {
-          scale: 1.1, // Slight overall zoom for depth
-          duration: 2,
-        },
-        0
-      )
-        .to(
-          ".peripheral-img",
-          {
-            opacity: 0,
-            scale: 0.8,
-            duration: 1,
-          },
-          0
-        )
+      tl.to(gridWrapper.current, { scale: 1.1, duration: 2 }, 0)
+        .to(".peripheral-img", { opacity: 0, scale: 0.8, duration: 1 }, 0)
         .to(
           zoomImage.current,
           {
-            // Essential: expand to fill the entire viewport
             width: "100vw",
             height: "100vh",
             maxWidth: "none",
             maxHeight: "none",
+            borderRadius: "0px",
             duration: 2,
             ease: "power2.inOut",
           },
           0
         )
-        .to(
-          textContent.current,
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-          },
-          "-=1"
-        );
+        .to(textContent.current, { opacity: 1, y: 0, duration: 1 }, "-=1");
     }, mainContainer);
     return () => ctx.revert();
   }, []);
 
   return (
-    <div className="">
+    <div className="bg-black">
       <section
         ref={mainContainer}
-        className="relative h-screen w-full overflow-hidden bg-[#758dc2] z-10 flex items-center justify-center"
+        className="relative h-screen w-full overflow-hidden z-10 flex items-center justify-center"
+        style={{ backgroundColor: galleryData.background }}
       >
-        {/* THE GRID SYSTEM */}
+        {/* THE GRID SYSTEM - Scaling sizes for mobile/tablet */}
         <div
           ref={gridWrapper}
-          className="relative w-full max-w-[1440px] px-10 flex flex-col gap-6"
+          className="relative w-full max-w-[1440px] px-4 md:px-10 flex flex-col gap-3 md:gap-6"
         >
-          {/* Top Row: Asymmetrical pair */}
-          <div className="flex justify-center gap-6 items-end h-[27vh]">
+          {/* Top Row */}
+          <div className="flex justify-center gap-3 md:gap-6 items-end h-[20vh] md:h-[27vh]">
             <img
-              src="https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d386823096e_outer-image.webp"
+              src={galleryData.gridImages.top[0]}
               className="peripheral-img w-[40%] h-full object-cover rounded-md"
-              alt="Architecture"
+              alt=""
             />
             <img
-              src="https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d3868230962_Interior.webp"
+              src={galleryData.gridImages.top[1]}
               className="peripheral-img w-[30%] h-[90%] object-cover rounded-md"
-              alt="Interior"
+              alt=""
             />
           </div>
 
-          {/* Middle Row: Side images + The Main Zooming Image */}
-          <div className="flex justify-center gap-6 items-center h-[30vh]">
+          {/* Middle Row */}
+          <div className="flex justify-center gap-3 md:gap-6 items-center h-[25vh] md:h-[30vh]">
             <img
-              src="https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d386823095f_dining-room.webp"
-              className="peripheral-img w-[15%] h-[80%] object-cover rounded-md"
-              alt="Dining"
+              src={galleryData.gridImages.middle[0]}
+              className="peripheral-img w-[20%] h-[90%] object-cover rounded-md"
+              alt=""
             />
-
-            {/* CENTER ZOOM IMAGE */}
             <div className="relative z-20 shrink-0 overflow-hidden">
               <img
                 ref={zoomImage}
-                src="https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d386823097e_Drawn%20House.webp"
-                className="w-[45vw] h-[30vh] object-cover rounded-2xl shadow-2xl"
-                alt="Main Building"
+                src={galleryData.mainZoomImage}
+                className="w-[55vw] md:w-[45vw] h-[25vh] md:h-[35vh] object-cover rounded-xl md:rounded-2xl shadow-2xl"
+                alt="Main"
               />
-              <div className="absolute inset-0 bg-black/30 pointer-events-none rounded-2xl" />
+              {/* <div className="absolute inset-0 bg-black/10 pointer-events-none rounded-xl md:rounded-2xl" /> */}
             </div>
-
             <img
-              src="https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d386823095c_siting-room.webp"
-              className="peripheral-img w-[15%] h-[80%] object-cover rounded-md"
-              alt="Sitting"
+              src={galleryData.gridImages.middle[1]}
+              className="peripheral-img w-[20%] h-[90%] object-cover rounded-md"
+              alt=""
             />
           </div>
 
-          {/* Bottom Row: Wide image */}
-          <div className="flex justify-center h-[30vh]">
+          {/* Bottom Row */}
+          <div className="flex justify-center h-[20vh] md:h-[30vh]">
             <img
-              src="https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d3868230967_Sitting.webp"
+              src={galleryData.gridImages.bottom}
               className="peripheral-img w-[50%] h-full object-cover rounded-md"
-              alt="Living"
+              alt=""
             />
           </div>
         </div>
 
-        {/* OVERLAY CONTENT (Hidden until Zoom is near completion) */}
+        {/* OVERLAY CONTENT - Responsive Layout */}
         <div
           ref={textContent}
-          className="absolute inset-0 z-30 flex flex-row items-center justify-between px-[8%] opacity-0 translate-y-10 pointer-events-none"
+          className="absolute inset-0 z-30 bg-black/20 flex flex-col md:flex-row items-center justify-center md:justify-between px-[5%] md:px-[8%] opacity-0 translate-y-10 pointer-events-none"
+          style={{ backdropFilter: "blur(1.5px)" }}
         >
-          {/* 2. Text Content (Now on the Right) */}
-          <div className="flex flex-col items-start max-w-2xl">
-            <h1 className="text-white text-7xl font-bold mb-4 leading-tight">
-              Building Dreams With Expert Precision
-            </h1>
-            <p className="text-white/80 max-w-xl text-lg mb-8 leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur. Sit urna mattis
-              pellentesque nibh sit in pulvinar elementum id. Aliquet purus orci
-              proin sed scelerisque odio.
+          {/* Text Content - Center aligned on mobile, Left on Desktop */}
+          <div className="order-2 md:order-1 flex flex-col items-center md:items-start max-w-2xl text-center md:text-left px-4">
+            <h1 className="text-[#eceff7] text-3xl md:text-5xl lg:text-7xl font-bold mb-4 leading-tight">
+              {galleryData.textContent.title}
+            </h1>   
+            <p className="text-white/80 max-w-md md:max-w-xl text-sm md:text-lg mb-6 md:mb-8 leading-relaxed">
+              {galleryData.textContent.description}
             </p>
-            <div className="flex items-center gap-10">
-              <button className="text-white border-b border-white w-fit text-xl pb-1 pointer-events-auto hover:text-[#a68a68] hover:border-[#a68a68] transition-colors">
-                Discover More ↗
-              </button>
-            </div>
+            <button onClick={() => navigate("/gallery")} className="text-white border-b border-white w-fit text-lg md:text-xl pb-1 pointer-events-auto transition-all hover:text-white/70">
+              {galleryData.textContent.cta}
+            </button>
           </div>
 
-          {/* 1. Windows Mobile Style Grid (Now on the Left) */}
-          <div className="w-72 h-72 grid grid-cols-2 grid-rows-2 gap-3 pointer-events-auto">
-            {/* Large Tile (Top Left) */}
-            <div className="col-span-1 row-span-1 bg-white/10 overflow-hidden rounded-sm relative group border border-white/10">
-              <div className="tile-content w-full h-full">
-                <LiveTile
-                images={[
-                  "https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d3868230962_Interior.webp",
-                  "https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d386823095c_siting-room.webp",
-                ]}
-              />
-              </div>
+          {/* Windows Mobile Style Grid - Smaller on mobile, hidden on very small screens if needed */}
+          <div className="order-1 md:order-2 w-48 h-48 md:w-72 md:h-72 grid grid-cols-2 grid-rows-2 gap-2 md:gap-3 pointer-events-auto mt-8 md:mt-0">
+            <div className="col-span-1 row-span-1 bg-[#758dc2] overflow-hidden rounded-md relative shadow-lg">
+              <LiveTile images={galleryData.gridImages.top} />
             </div>
-
-            {/* Live Tile (Top Right) - Animated Component */}
-            <div className="col-span-1 row-span-1 bg-[#a68a68] overflow-hidden rounded-sm relative shadow-lg">
-              <LiveTile
-                images={[
-                  "https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d386823095f_dining-room.webp",
-                  "https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67adac8ef53d8d386823095c_siting-room.webp",
-                ]}
-              />
+            <div className="col-span-1 row-span-1 bg-[#c5a47c] overflow-hidden rounded-md relative shadow-lg">
+              <LiveTile images={galleryData.gridImages.middle} />
             </div>
-
-            {/* Wide Tile (Bottom) */}
-            <div className="col-span-2 row-span-1 bg-black/40 overflow-hidden rounded-sm relative border border-white/10">
+            <div className="col-span-2 row-span-1 bg-black/40 overflow-hidden rounded-md relative ">
               <video
                 autoPlay
                 muted
                 loop
-                className="w-full h-full object-cover opacity-80"
+                onClick={() => navigate("/gallery")}
+                className="w-full h-full object-cover cursor-pointer"
               >
-                <source
-                  src="https://cdn.prod.website-files.com/6667d7bcc80d3c3ef173af9f/67bdaf1a42755b16fbdd0b47_7578544-uhd_3840_2160_30fps-transcode.mp4"
-                  type="video/mp4"
-                />
+                <source src={galleryData.textContent.video} type="video/mp4" />
               </video>
-              <div className="absolute bottom-2 left-2 text-[10px] uppercase tracking-widest text-white font-bold bg-black/20 px-1">
+              <div
+                onClick={() => {
+                  navigate("/gallery");
+                }}
+                className="cursor-pointer absolute bottom-2 left-2 text-[10px] uppercase tracking-widest text-white hover:text-white/60 font-bold"
+              >
                 Live Preview
               </div>
             </div>
@@ -194,53 +178,60 @@ const GallerySectionNew = () => {
         </div>
       </section>
 
-      {/* NEXT SECTION (Covers the previous one) */}
-      <section className="relative z-20 bg-transparent min-h-screen flex flex-col items-center justify-center text-center">
-        <h2 className="text-5xl font-bold text-transparent mb-6">
-          Innovative Architecture
-        </h2>
-        <p className="text-transparent max-w-2xl">
-          Continuing the journey through expert precision and design excellence.
-        </p>
-      </section>
+      {/* Spacer for scroll effect */}
+      <section className="h-screen bg-transparent"></section>
+    </div>
+  );
+};
+
+const LiveTile = ({ images }) => {
+  const [index, setIndex] = React.useState(() =>
+    Math.floor(Math.random() * images.length)
+  ); // random start
+  const tileRef = useRef(null);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    // Randomize initial delay so multiple tiles don't animate together
+    const initialDelay = Math.random() * 4000;
+
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setIndex((prev) => {
+          const nextIndex = (prev + 1) % images.length;
+
+          gsap.to(tileRef.current, {
+            rotationX: -90,
+            duration: 0.4,
+            onComplete: () => {
+              gsap.fromTo(
+                tileRef.current,
+                { rotationX: 90 },
+                { rotationX: 0, duration: 0.4 }
+              );
+            },
+          });
+
+          return nextIndex;
+        });
+      }, 4000);
+
+      return () => clearInterval(interval);
+    }, initialDelay);
+
+    return () => clearTimeout(timer);
+  }, [images.length]);
+
+  return (
+    <div ref={tileRef} className="w-full h-full perspective-1000">
+      <img
+        src={images[index]}
+        className="w-full h-full object-cover cursor-pointer"
+        alt="Update"
+        onClick={() => navigate("/gallery")}
+      />
     </div>
   );
 };
 
 export default GallerySectionNew;
-
-const LiveTile = ({ images }) => {
-  const [index, setIndex] = React.useState(0);
-  const tileRef = useRef(null);
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      const nextIndex = (index + 1) % images.length;
-
-      gsap.to(tileRef.current, {
-        rotationX: -90,
-        duration: 0.4,
-        onComplete: () => {
-          setIndex(nextIndex);
-          gsap.fromTo(
-            tileRef.current,
-            { rotationX: 90 },
-            { rotationX: 0, duration: 0.4 }
-          );
-        },
-      });
-    }, 4000);
-
-    return () => clearInterval(timer);
-  }, [index, images.length]);
-
-  return (
-    <div ref={tileRef} className="w-full h-full bg-[#8c7456] preserve-3d">
-      <img
-        src={images[index]}
-        className="w-full h-full object-cover"
-        alt="Live Update"
-      />
-    </div>
-  );
-};
