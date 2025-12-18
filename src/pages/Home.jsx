@@ -19,6 +19,7 @@ import AboutUsNew from "../component/AboutUsNew";
 import ArchitecturalStatsSection from "../component/ArchitecturalStatsSection";
 import GallerySectionNew from "../component/GallerySectionNew";
 import NewAboutSection from "../component/NewAboutSection";
+import AcademicSection from "../component/AcademicSection";
 
 const Home = () => {
   useEffect(() => {
@@ -38,7 +39,7 @@ const Home = () => {
       <NewAboutSection />
       <ResortSection />
       <VillaBookingSection />
-      <VisionMissionSection />
+      <AcademicSection />
       <PropertyStorySection/>
       {/* <RestaurantResortSection /> */}
       {/* <GallerySection/> */}

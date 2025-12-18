@@ -23,8 +23,8 @@ const items = [
 ];
 export default function NewAboutSection() {
     return (
-        <section className="bg-[#0b0b0b] py-13 lg:h-[113vh] h-auto">
-            <div className="mx-auto px-5">
+        <section className="bg-white py-13 lg:h-[113vh] h-auto">
+            <div className="mx-auto px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-[550px_1fr] gap-10 items-start">
 
                     {/* LEFT LARGE IMAGE */}
@@ -37,12 +37,12 @@ export default function NewAboutSection() {
                     </div>
 
                     {/* RIGHT CONTENT */}
-                    <div className="relative text-white">
+                    <div className="relative text-black">
 
                         {/* Subtitle */}
                         <div className="flex items-center gap-4 mb-6">
-                            <span className="w-12 h-[1px] bg-white/40"></span>
-                            <span className="tracking-[0.3em] text-sm text-white/70">
+                            <span className="w-12 h-[1px] bg-black"></span>
+                            <span className="tracking-[0.3em] text-sm text-black">
                                 ABOUT US
                             </span>
                         </div>
@@ -54,7 +54,7 @@ export default function NewAboutSection() {
                         </h2>
 
                         {/* Description */}
-                        <p className="text-white/70 max-w-2xl leading-relaxed mb-8">
+                        <p className="text-black max-w-2xl leading-relaxed mb-8">
                             At Sel, tranquility is not just a feeling — it is a way of life.
                             Surrounded by untouched landscapes and soothing waters, Sel is
                             designed for those who seek meaningful escapes, slow mornings,
@@ -65,7 +65,7 @@ export default function NewAboutSection() {
                         {/* Bullet Points */}
                         <div className="flex md:flex-row flex-col gap-10">
                             <div className="">
-                                <ul className="space-y-4 text-white/80 mb-10 md:w-full w-full">
+                                <ul className="space-y-4 text-black mb-10 md:w-full w-full">
                                     <li className="flex gap-3">
                                         <span>✦</span>
                                         <span>Private villas and serene rooms designed for absolute comfort.</span>
@@ -87,9 +87,17 @@ export default function NewAboutSection() {
 
                                 {/* Button */}
                                 {/* ICONS + CTA (COMPACT & CENTERED) */}
-                                <div className="mt-4 flex flex-col items-start gap-6 lg:w-full w-full">
+                                <div className="mt-4 flex flex-col justify-between items-start gap-6 lg:w-[90%] w-full h-[75%]">
 
-                                    <div className="flex gap-3 md:flex-wrap lg:flex-nowrap flex-wrap">
+
+
+                                    <a
+                                        href="/rooms"
+                                        className="inline-block px-7 py-3 border border-black tracking-widest text-xs hover:bg-black hover:text-white transition"
+                                    >
+                                        VIEW ROOMS
+                                    </a>
+                                    <div className="flex gap-3 md:flex-wrap lg:flex-nowrap flex-wrap mt-auto">
                                         {items.map((item, idx) => (
                                             <div
                                                 key={idx}
@@ -108,19 +116,12 @@ export default function NewAboutSection() {
                                                     />
                                                 </div>
 
-                                                <p className="mt-2 text-[12px] text-gray-400 text-center max-w-[120px] leading-tight">
+                                                <p className="mt-2 text-[12px] text-black text-center max-w-[120px] leading-tight">
                                                     {item.label}
                                                 </p>
                                             </div>
                                         ))}
                                     </div>
-
-                                    <a
-                                        href="/rooms"
-                                        className="inline-block px-7 py-3 border border-white/40 tracking-widest text-xs hover:bg-white hover:text-black transition"
-                                    >
-                                        VIEW ROOMS
-                                    </a>
                                 </div>
                             </div>
 
