@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FilterBar from "./FilterBar/FilterBar";
 const amenities = [
   {
     title: "Relaxing Spa & Jacuzzi",
@@ -70,8 +71,8 @@ export default function AmenitiesGrid() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className=" relative max-w-7xl mx-auto px-6 py-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
         {amenities.map((item, index) => (
           <div
             key={index}

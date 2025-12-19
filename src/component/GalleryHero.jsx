@@ -55,7 +55,7 @@ export default function GalleryHero({
       )}
 
       {/* Floating Cards */}
-      {cards.map((card, index) => (
+      {cards?.map((card, index) => (
         <div
           key={card.id}
           className={`absolute bottom-5 z-20 hidden md:block animate-float ${

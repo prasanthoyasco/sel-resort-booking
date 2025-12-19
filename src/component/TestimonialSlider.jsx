@@ -9,15 +9,15 @@ const avatars = [
 const testimonials = [
   {
     id: 1,
-    name: "Raj Kumar",
-    batch: "2024",
-    text: "Our stay at this resort was absolutely magical. The staff went above and beyond to make our experience unforgettable. Highly recommend for a perfect getaway!",
+    name: "Arjun Nair",
+    batch: "Bangalore",
+    text: "Our stay at SEL Resort was truly unforgettable. The serene surroundings, elegant rooms, and warm hospitality made us feel relaxed from the moment we arrived. It was the perfect escape from city life.",
   },
   {
     id: 2,
-    name: "Marimuthu K",
-    batch: "2023",
-    text: "Exceptional service, stunning views, and world-class amenities. This resort exceeded all our expectations. We can't wait to return for another memorable vacation.",
+    name: "Meenakshi Rao",
+    batch: "Chennai",
+    text: "SEL Resort offers a beautiful blend of comfort and nature. From the peaceful ambience to the attentive staff and well-maintained amenities, every detail was thoughtfully taken care of.",
   },
 ];
 
@@ -47,30 +47,31 @@ export default function TestimonialSlider() {
         </h2>
 
         {/* Avatars */}
-        <div className="relative mb-10 overflow-hidden">
-          <div className="flex justify-center items-center gap-3">
-            {avatars.map((img, i) => (
-              <div
-                key={i}
-                className="w-12 h-12 rounded-full overflow-hidden border border-gray-200 bg-white"
-              >
-                <img
-                  src={img}
-                  alt="avatar"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="relative mb-10 flex justify-center">
+          {/* Mask container */}
+          <div className="relative w-[260px] overflow-hidden">
+            <div className="flex items-center justify-center">
+              {avatars.map((img, i) => (
+                <div
+                  key={i}
+                  className={`w-15 h-15 rounded-full overflow-hidden border-2 border-white bg-white
+          ${i !== 0 ? "-ml-2" : ""}`}
+                >
+                  <img
+                    src={img}
+                    alt="avatar"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
 
-          {/* Gradient overlay */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(218deg,rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 1) 90%)",
-            }}
-          />
+            {/* LEFT FADE */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 z-10 bg-linear-to-r from-white to-transparent" />
+
+            {/* RIGHT FADE */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 z-10 bg-linear-to-l from-white to-transparent" />
+          </div>
         </div>
 
         {/* Quote icon */}
