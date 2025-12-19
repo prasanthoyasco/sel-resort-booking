@@ -7,7 +7,7 @@ const stays = [
 
 export default function StayDropdown({ onSelect }) {
   return (
-    <div className="absolute left-0 mt-4 bg-white rounded-2xl shadow-2xl w-96 p-4">
+    <div className="absolute left-0 right-0 sm:left-0 sm:w-96 mt-3 bg-white rounded-2xl shadow-2xl p-4">
       <p className="text-xs text-gray-400 mb-3">Suggested stays</p>
       {stays.map((stay) => (
         <button
@@ -21,3 +21,4 @@ export default function StayDropdown({ onSelect }) {
     </div>
   );
 }
+

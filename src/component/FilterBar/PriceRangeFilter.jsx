@@ -1,6 +1,6 @@
-export default function PriceRangeFilter({ value, onChange }) {
+export default function PriceRangeFilter({ value, onChange,variant = "desktop", }) {
   return (
-    <div className=" dropdown space-y-3">
+    <div className={variant === "desktop" ? "dropdown" : "dropdown-mobile space-y-3"}>
         <label for="minmax-range" class="block mb-1 text-sm font-medium text-heading">Price</label>
       <input
         type="range"

@@ -93,7 +93,7 @@ export const ResortDetails = () => {
         ]}
       />
       <StaySearchBar />
-      <div className="relative px-20 top-15">
+      <div className="relative px-5 lg:px-20 top-15">
         <FilterBar />
         <div className="space-y-6 mt-10">
           {resortRooms.map((room) => (

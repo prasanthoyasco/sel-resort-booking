@@ -6,9 +6,9 @@ function Counter({ label, value, onChange, sub }) {
         <p className="text-xs text-gray-400">{sub}</p>
       </div>
       <div className="flex items-center gap-3">
-        <button onClick={() => onChange(value - 1)} className="w-8 h-8 border rounded-full">−</button>
-        <span>{value}</span>
-        <button onClick={() => onChange(value + 1)} className="w-8 h-8 border rounded-full">+</button>
+        <button onClick={() => onChange(value - 1)} className="w-8 h-8 border border-gray-400 rounded-full">−</button>
+        <span className="w-3">{value}</span>
+        <button onClick={() => onChange(value + 1)} className="w-8 h-8 border border-gray-400 rounded-full">+</button>
       </div>
     </div>
   );
@@ -16,7 +16,7 @@ function Counter({ label, value, onChange, sub }) {
 
 export default function GuestRoomPicker({ value, onChange }) {
   return (
-    <div className="absolute left-3/5 mt-4 bg-white rounded-2xl shadow-2xl w-80 p-6 space-y-5">
+    <div className="absolute left-0 right-0 sm:left-1/2 lg:left-4/5 sm:-translate-x-1/2 mt-3 bg-white rounded-2xl shadow-2xl w-full sm:w-80 p-6 space-y-5"> 
       <Counter
         label="Adults"
         sub="Ages 13+"

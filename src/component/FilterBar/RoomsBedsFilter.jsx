@@ -11,7 +11,7 @@ function Counter({ label, value, onChange }) {
   );
 }
 
-export default function RoomsBedsFilter({ value, onChange }) {
+export default function RoomsBedsFilter({ value, onChange,variant = "desktop", }) {
   const MAX_PERSONS_PER_ROOM = 2;
   const maxPersons = value.rooms * MAX_PERSONS_PER_ROOM;
 
@@ -27,7 +27,7 @@ export default function RoomsBedsFilter({ value, onChange }) {
   };
 
   return (
-    <div className="dropdown space-y-4">
+    <div className={variant === "desktop" ? "dropdown" : "dropdown-mobile space-y-4"}>
       {/* Rooms */}
       <Counter
         label="Rooms"
