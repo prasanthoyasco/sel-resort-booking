@@ -44,41 +44,41 @@ const Stayinfosection = () => {
         {/* Mon–Thu */}
         <dt
           className="col-start-1 border-t border-gray-900/5  pt-1 lg:pt-3 text-gray-500 
-                   first:border-none sm:py-3 dark:border-white/5"
+                   first:border-none sm:py-"
         >
           Monday - Thursday
         </dt>
         <dd
           className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5 
-                   sm:py-3 dark:text-white dark:sm:border-white/5"
+                   sm:py-3 font-semibold"
         >
-          $199
+          ₹ 199
         </dd>
 
         {/* Fri–Sun */}
         <dt
           className="col-start-1 border-t border-gray-950/5 pt-1 lg:pt-3 text-gray-500
-                   sm:py-3 dark:border-white/5 dark:text-gray-400"
+                   sm:py-3 font-semibold"
         >
           Friday - Sunday
         </dt>
         <dd
           className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5
-                   sm:py-3 dark:text-white dark:sm:border-white/5"
+                   sm:py-3 font-semibold"
         >
-          $219
+          ₹ 219
         </dd>
 
         {/* Monthly */}
         <dt
           className="col-start-1 border-t border-gray-950/5 pt-1 lg:pt-3 text-gray-500 
-                   sm:py-3 dark:border-white/5 dark:text-gray-400"
+                   sm:py-3 "
         >
           Rent by month
         </dt>
         <dd
           className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5
-                   sm:py-3 dark:text-white dark:sm:border-white/5"
+                   sm:py-3 font-semibold"
         >
           -8.34 %
         </dd>
@@ -86,13 +86,13 @@ const Stayinfosection = () => {
         {/* Min Nights */}
         <dt
           className="col-start-1 border-t border-gray-950/5 pt-1 lg:pt-3 text-gray-500 
-                   sm:py-3 dark:border-white/5 dark:text-gray-400"
+                   sm:py-3 "
         >
           Minimum number of nights
         </dt>
         <dd
           className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5
-                   sm:py-3 dark:text-white dark:sm:border-white/5"
+                   sm:py-3 font-semibold"
         >
           1 night
         </dd>
@@ -100,13 +100,13 @@ const Stayinfosection = () => {
         {/* Max Nights */}
         <dt
           className="col-start-1 border-t border-gray-950/5 pt-1 lg:pt-3 text-gray-500
-                   sm:py-3 dark:border-white/5 dark:text-gray-400"
+                   sm:py-3 "
         >
           Max number of nights
         </dt>
         <dd
           className="pt-1 pb-3 text-gray-950 sm:border-t sm:border-gray-950/5
-                   sm:py-3 dark:text-white dark:sm:border-white/5"
+                   sm:py-3 font-semibold"
         >
           90 nights
         </dd>

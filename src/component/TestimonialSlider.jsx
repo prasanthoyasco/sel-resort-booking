@@ -43,7 +43,7 @@ export default function TestimonialSlider() {
 
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-8">
-          Success stories told by our happy students
+          Success stories told by our happy Patrons
         </h2>
 
         {/* Avatars */}

@@ -14,7 +14,7 @@ export default function StaylistPage() {
       {/* <Navigation /> */}
       <StayHeaderGallery />
       <BookingPage/>
-      <StayGallery/>
+      {/* <StayGallery/> */}
       <StayReview/>
       <LocationSection/>
       <HappeningCities/>
