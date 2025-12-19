@@ -11,13 +11,13 @@ const testimonials = [
     id: 1,
     name: "Raj Kumar",
     batch: "2024",
-    text: "Parents and students consistently express how our school's supportive environment and passionate teachers have helped them thrive. Their stories highlight a culture of care.",
+    text: "Our stay at this resort was absolutely magical. The staff went above and beyond to make our experience unforgettable. Highly recommend for a perfect getaway!",
   },
   {
     id: 2,
     name: "Marimuthu K",
     batch: "2023",
-    text: "The learning experience here transformed my confidence and skills. Teachers genuinely care, and the environment pushes you to be your best version every day.",
+    text: "Exceptional service, stunning views, and world-class amenities. This resort exceeded all our expectations. We can't wait to return for another memorable vacation.",
   },
 ];
 
