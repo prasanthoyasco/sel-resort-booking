@@ -100,7 +100,7 @@ function FooterCol({ title, items }) {
                 {items.map((item, i) => (
                     <li
                         key={i}
-                        className="relative w-fit cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-white hover:after:w-full after:transition-all"
+                        className="relative w-fit cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-white hover:after:w-full after:transition-all"
                     >
                         {item}
                     </li>
@@ -112,7 +112,7 @@ function FooterCol({ title, items }) {
 
 function CircleIcon({ src, alt = "" }) {
     return (
-        <span className="w-9 h-9 bg-[#123c47] rounded-full flex items-center justify-center flex-shrink-0">
+        <span className="w-9 h-9 bg-[#123c47] rounded-full flex items-center justify-center shrink-0">
             <img
                 src={src}
                 alt={alt}

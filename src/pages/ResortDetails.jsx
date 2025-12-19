@@ -3,7 +3,7 @@ import AmenitiesGrid from "../component/AmenitiesGrid";
 import GalleryHero from "../component/GalleryHero";
 import StaySearchBar from "../component/StaySearchForm/StaySearchBar";
 import FilterBar from "../component/FilterBar/FilterBar";
-import Footer from "../component/Footer";
+import NewFooter from "../component/NewFooter";
 import ResortRoomCard from "../component/ResortRoomCard";
 import { useParams } from "react-router-dom";
 const resortRooms = [
@@ -102,7 +102,7 @@ export const ResortDetails = () => {
         </div>
       </div>
       <AmenitiesGrid />
-      <Footer />
+      <NewFooter />
     </>
   );
 };
