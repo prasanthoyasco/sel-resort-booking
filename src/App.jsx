@@ -41,7 +41,7 @@ export default function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/gallery" element={<Gallery />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/resorts" element={<ResortDetails />} />
+                  <Route path="/rooms/:name" element={<ResortDetails />} />
                 </Routes>
               </SmoothScroll>
             </>

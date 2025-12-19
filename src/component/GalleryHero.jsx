@@ -32,7 +32,7 @@ export default function GalleryHero({
       {/* Center Heading */}
       {title && (
         <div className="relative z-10 flex h-full items-center justify-center text-white">
-          <h1 className="text-4xl font-semibold md:text-5xl text-center">
+          <h1 className="text-4xl font-semibold md:text-5xl text-center capitalize">
             {title}
           </h1>
         </div>

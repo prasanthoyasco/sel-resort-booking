@@ -5,6 +5,7 @@ import StaySearchBar from "../component/StaySearchForm/StaySearchBar";
 import FilterBar from "../component/FilterBar/FilterBar";
 import Footer from "../component/Footer";
 import ResortRoomCard from "../component/ResortRoomCard";
+import { useParams } from "react-router-dom";
 const resortRooms = [
   {
     id: 1,
@@ -64,10 +65,11 @@ const resortRooms = [
 ];
 
 export const ResortDetails = () => {
+  const { name } = useParams();
   return (
     <>
       <GalleryHero
-        title="PROPERTY BOOKING"
+        title={`${decodeURIComponent(name)} rooms`}
         showPlayButton={false}
         backgroundImage="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/685a3cf73d56b32034529474_Banner-3.webp"
         playImage="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/684bbaeede270ba0c81fc1a6_Play.webp"
