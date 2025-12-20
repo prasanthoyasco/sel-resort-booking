@@ -87,7 +87,7 @@ export default function NewAboutSection() {
 
                                 {/* Button */}
                                 {/* ICONS + CTA (COMPACT & CENTERED) */}
-                                <div className="mt-4 flex flex-col justify-between items-start gap-6 lg:w-[90%] w-full h-[75%]">
+                                <div className="mt-4 flex flex-col justify-between items-start gap-6 lg:w-[90%] w-full lg:h-[75%]">
 
 
 
