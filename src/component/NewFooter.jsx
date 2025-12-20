@@ -10,7 +10,7 @@ export default function Footer() {
 
             {/* ================= CONTENT ================= */}
             <div className="px-6 py-20">
-                <div className="grid grid-cols-[1.7fr_1fr_1fr_1.2fr] gap-10">
+                <div className="grid lg:grid-cols-[1.7fr_1fr_1fr_1.2fr] grid-cols-1 md:grid-cols-2 gap-10">
 
                     {/* LOGO */}
                     <div>
@@ -20,7 +20,7 @@ export default function Footer() {
                             alt=""
                         />
                         <p className="leading-[22px] text-white/70 mb-6">
-Be the first to know about exclusive SEL Resort experiences, seasonal stay offers, and curated wellness escapes. Sign up and unlock a world of relaxed luxury.
+                            Be the first to know about exclusive SEL Resort experiences, seasonal stay offers, and curated wellness escapes. Sign up and unlock a world of relaxed luxury.
                         </p>
 
                         <div className="flex gap-3">
