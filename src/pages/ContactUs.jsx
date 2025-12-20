@@ -9,6 +9,7 @@ export const ContactUs = () => {
     <div>
       <GalleryHero
         title="Contact Us"
+        height = "h-[30vh] lg:h-[70vh]"
         showPlayButton={false}
         backgroundImage="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/685a3cf73d56b32034529474_Banner-3.webp"
         playImage="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/684bbaeede270ba0c81fc1a6_Play.webp"
@@ -41,7 +42,7 @@ export const ContactUs = () => {
 
 export default function FullWidthMap() {
   return (
-    <section className="w-[90%] rounded-2xl relative mx-auto">
+    <section className="w-[90%] rounded-2xl relative mx-auto" data-aos="zoom-in" data-aos-delay="500">
       <div className="w-full h-[450px] rounded-2xl">
         <iframe
           title="Google Map"

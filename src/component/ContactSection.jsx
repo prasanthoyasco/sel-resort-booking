@@ -55,23 +55,25 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-20" data-aos="fade-up">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-col-3 gap-12">
         {/* LEFT FORM */}
-        <div className="lg:col-span-2">
-          <h2 className="text-3xl font-semibold mb-10">Get in Touch</h2>
+        <div className="lg:col-span-2" data-aos="fade-right" data-aos-delay="100">
+          <h2 className="text-3xl font-semibold mb-10" data-aos="fade-up" data-aos-delay="200">Get in Touch</h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input
                 label="Name"
                 name="firstName"
+                 dataAos="fade-up" delay={300}
                 value={form.firstName}
                 onChange={handleChange}
                 error={errors.firstName}
               />
               <Input
                 label="Last name"
+                 dataAos="fade-up" delay={350}
                 name="lastName"
                 value={form.lastName}
                 onChange={handleChange}
@@ -80,6 +82,7 @@ export default function ContactSection() {
               <Input
                 label="Email"
                 name="email"
+                 dataAos="fade-up" delay={400}
                 value={form.email}
                 onChange={handleChange}
                 error={errors.email}
@@ -88,12 +91,15 @@ export default function ContactSection() {
                 label="Mobile"
                 name="phone"
                 value={form.phone}
+                 dataAos="fade-up" delay={450}
                 onChange={handleChange}
                 error={errors.phone}
               />
             </div>
+             <div data-aos="fade-up" data-aos-delay="500">
                 <CustomSelect/>
-            <div>
+                </div>
+            <div data-aos="fade-up" data-aos-delay="550">
               <textarea
                 name="message"
                 placeholder="Message eg: we would like book your resort for our Marriage...."
@@ -108,6 +114,7 @@ export default function ContactSection() {
 
             <Input
               label="Are you human? 3 + 1 ="
+              dataAos="fade-up" delay={600}
               name="human"
               value={form.human}
               onChange={handleChange}
@@ -122,6 +129,8 @@ export default function ContactSection() {
 
             <button
               type="submit"
+              data-aos="zoom-in"
+              data-aos-delay="700"
               className="mt-4 inline-flex items-center justify-center rounded-full border border-black px-8 py-3 text-sm font-medium hover:bg-black hover:text-white transition"
             >
               Submit
@@ -130,11 +139,13 @@ export default function ContactSection() {
         </div>
 
         {/* RIGHT INFO CARD */}
-        <div className="bg-white rounded-xl shadow-sm p-8 space-y-15">
+        <div className="bg-white rounded-xl shadow-sm p-8 space-y-15" data-aos="fade-left"
+          data-aos-delay="200">
           <InfoBlock
             Icon={MapPin}
             title="Address"
             text="97845 Baker st, Coimbatore Tamilnadu - IN."
+             delay={300}
           />
 
           <InfoBlock
@@ -146,6 +157,7 @@ export default function ContactSection() {
                 info@selhospitality.com
               </>
             }
+             delay={300}
           />
 
           <InfoBlock
@@ -159,6 +171,7 @@ export default function ContactSection() {
                 </span>
               </>
             }
+             delay={300}
           />
         </div>
       </div>
@@ -168,11 +181,11 @@ export default function ContactSection() {
 
 /* ---------- Reusable Components ---------- */
 
-function Input({ label, name, value, onChange, error }) {
+function Input({ label, name, value,dataAos,delay, onChange, error }) {
   return (
-    <div>
+    <div data-aos={dataAos} data-aos-delay={delay}>
       <input
-        type="text"
+        type="text"        
         name={name}
         placeholder={label}
         value={value}
@@ -184,9 +197,9 @@ function Input({ label, name, value, onChange, error }) {
   );
 }
 
-function InfoBlock({ title, text, Icon }) {
+function InfoBlock({ title, text, Icon,delay }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2" data-aos="fade-up" data-aos-delay={delay}>
       {Icon && <Icon className="w-6 h-6 text-[#eea159]" />}
       <h4 className="font-semibold text-lg">{title}</h4>
       <p className="text-gray-600 leading-relaxed">{text}</p>

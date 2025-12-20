@@ -8,33 +8,32 @@ export default function InfiniteGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Split images into repeating rows: 2 large → 3 medium → repeat
-const getRows = (images) => {
-  const rows = [];
-  let i = 0;
-  let largeToggle = true; // controls 4-8 vs 8-4
+  const getRows = (images) => {
+    const rows = [];
+    let i = 0;
+    let largeToggle = true; // controls 4-8 vs 8-4
 
-  while (i < images.length) {
-    // Large row
-    rows.push({
-      type: largeToggle ? "large" : "large-reverse",
-      items: images.slice(i, i + 2),
-    });
-    i += 2;
-    largeToggle = !largeToggle;
-
-    // Medium row
-    if (i < images.length) {
+    while (i < images.length) {
+      // Large row
       rows.push({
-        type: "medium",
-        items: images.slice(i, i + 3),
+        type: largeToggle ? "large" : "large-reverse",
+        items: images.slice(i, i + 2),
       });
-      i += 3;
+      i += 2;
+      largeToggle = !largeToggle;
+
+      // Medium row
+      if (i < images.length) {
+        rows.push({
+          type: "medium",
+          items: images.slice(i, i + 3),
+        });
+        i += 3;
+      }
     }
-  }
 
-  return rows;
-};
-
+    return rows;
+  };
 
   const rows = getRows(images);
 
@@ -51,85 +50,86 @@ const getRows = (images) => {
         </div>
 
         <div className="grid gap-8">
-{rows.map((row, idx) => {
+          {rows.map((row, idx) => {
+            // 4-8 layout
+            if (row.type === "large") {
+              return (
+                <div key={idx} className="grid md:grid-cols-12 gap-4">
+                  <div className="md:col-span-8 h-[404px] overflow-hidden">
+                    <img
+                      src={row.items[0].src}
+                      className="object-cover w-full h-full rounded-3xl cursor-pointer"
+                      onClick={() => {
+                        setCurrentIndex(images.indexOf(row.items[0]));
+                        setLightboxOpen(true);
+                      }}
+                    />
+                  </div>
 
-  // 4-8 layout
-  if (row.type === "large") {
-    return (
-      <div key={idx} className="grid md:grid-cols-12 gap-4">
-        <div className="md:col-span-8 h-[404px] overflow-hidden">
-          <img
-            src={row.items[0].src}
-            className="object-cover w-full h-full rounded-3xl cursor-pointer"
-            onClick={() => {
-              setCurrentIndex(images.indexOf(row.items[0]));
-              setLightboxOpen(true);
-            }}
-          />
-        </div>
+                  <div className="md:col-span-4 h-[404px] overflow-hidden">
+                    <img
+                      src={row.items[1].src}
+                      className="object-cover w-full h-full rounded-3xl cursor-pointer"
+                      onClick={() => {
+                        setCurrentIndex(images.indexOf(row.items[1]));
+                        setLightboxOpen(true);
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            }
 
-        <div className="md:col-span-4 h-[404px] overflow-hidden">
-          <img
-            src={row.items[1].src}
-            className="object-cover w-full h-full rounded-3xl cursor-pointer"
-            onClick={() => {
-              setCurrentIndex(images.indexOf(row.items[1]));
-              setLightboxOpen(true);
-            }}
-          />
-        </div>
-      </div>
-    );
-  }
+            // 8-4 layout (reverse)
+            if (row.type === "large-reverse") {
+              return (
+                <div key={idx} className="grid md:grid-cols-12 gap-4">
+                  <div className="md:col-span-4 h-[404px] overflow-hidden">
+                    <img
+                      src={row.items[0].src}
+                      className="object-cover w-full h-full rounded-3xl cursor-pointer"
+                      onClick={() => {
+                        setCurrentIndex(images.indexOf(row.items[0]));
+                        setLightboxOpen(true);
+                      }}
+                    />
+                  </div>
 
-  // 8-4 layout (reverse)
-  if (row.type === "large-reverse") {
-    return (
-      <div key={idx} className="grid md:grid-cols-12 gap-4">
-        <div className="md:col-span-4 h-[404px] overflow-hidden">
-          <img
-            src={row.items[0].src}
-            className="object-cover w-full h-full rounded-3xl cursor-pointer"
-            onClick={() => {
-              setCurrentIndex(images.indexOf(row.items[0]));
-              setLightboxOpen(true);
-            }}
-          />
-        </div>
+                  <div className="md:col-span-8 h-[404px] overflow-hidden">
+                    <img
+                      src={row.items[1].src}
+                      className="object-cover w-full h-full rounded-3xl cursor-pointer"
+                      onClick={() => {
+                        setCurrentIndex(images.indexOf(row.items[1]));
+                        setLightboxOpen(true);
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            }
 
-        <div className="md:col-span-8 h-[404px] overflow-hidden">
-          <img
-            src={row.items[1].src}
-            className="object-cover w-full h-full rounded-3xl cursor-pointer"
-            onClick={() => {
-              setCurrentIndex(images.indexOf(row.items[1]));
-              setLightboxOpen(true);
-            }}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  // 3 grid layout
-  return (
-    <div key={idx} className="grid md:grid-cols-3 gap-4">
-      {row.items.map((img, i) => (
-        <div key={i} className="h-[277px] overflow-hidden rounded-3xl">
-          <img
-            src={img.src}
-            className="object-cover w-full h-full cursor-pointer"
-            onClick={() => {
-              setCurrentIndex(images.indexOf(img));
-              setLightboxOpen(true);
-            }}
-          />
-        </div>
-      ))}
-    </div>
-  );
-})}
-
+            // 3 grid layout
+            return (
+              <div key={idx} className="grid md:grid-cols-3 gap-4">
+                {row.items.map((img, i) => (
+                  <div
+                    key={i}
+                    className="h-[277px] overflow-hidden rounded-3xl"
+                  >
+                    <img
+                      src={img.src}
+                      className="object-cover w-full h-full cursor-pointer"
+                      onClick={() => {
+                        setCurrentIndex(images.indexOf(img));
+                        setLightboxOpen(true);
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -141,8 +141,16 @@ const getRows = (images) => {
         index={currentIndex}
         animation={{ fade: 300 }}
         styles={{
-          container: { display: "flex", alignItems: "center", justifyContent: "center" },
-          image: { maxHeight: "90vh", objectFit: "contain",borderRaious:"30px" },
+          container: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          image: {
+            maxHeight: "90vh",
+            objectFit: "contain",
+            borderRaious: "30px",
+          },
         }}
       />
     </section>

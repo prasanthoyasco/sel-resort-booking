@@ -13,6 +13,7 @@ import SmoothScroll from "./component/SmoothScroll.jsx";
 import Navigation from "./component/Navigation.jsx";
 import ScrollRestoration from "./component/ScrollRestoration.jsx";
 import { ContactUs } from "./pages/ContactUs.jsx";
+import { RoomDetails } from "./pages/RoomDetails.jsx";
 
 function Contact() {
   return <h1>Contact Page</h1>;
@@ -42,7 +43,8 @@ export default function App() {
                   <Route path="/contact" element={<ContactUs />} />
                   <Route path="/gallery" element={<Gallery />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/rooms/:name" element={<ResortDetails />} />
+                  <Route path="/stay/rooms/:name" element={<ResortDetails />} />
+                  <Route path="/room/details" element={<RoomDetails />} />
                 </Routes>
               </SmoothScroll>
             </>
