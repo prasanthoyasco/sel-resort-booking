@@ -49,7 +49,7 @@ const Navigation = ({ bg }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${dynamicBG}`}
+      className={`fixed top-0 left-0 w-screen lg:w-full z-50 transition-transform duration-300 ${dynamicBG}`}
       style={{
         transform: scrollUp ? "translateY(0)" : "translateY(-100%)",
       }}

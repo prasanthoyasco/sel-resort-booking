@@ -2,8 +2,8 @@ import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Ensure ScrollTrigger is registered
 gsap.registerPlugin(ScrollTrigger);
+
 const reviews = [
   {
     id: 1,
@@ -65,11 +65,14 @@ export default function RoomReviewSection() {
   const stickyRef = useRef(null);
 
   useLayoutEffect(() => {
+    // Disable pinning on mobile
+    if (window.innerWidth < 1024) return;
+
     let ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: containerRef.current,
         pin: stickyRef.current,
-        start: "top 20px",
+        start: "top 100px",
         end: "bottom bottom",
         pinSpacing: false,
       });
@@ -79,37 +82,40 @@ export default function RoomReviewSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-white py-20 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    <section
+      ref={containerRef}
+      className="bg-white py-14 sm:py-20 px-4 sm:px-6 md:px-20"
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-        {/* LEFT SIDE: Scrolling Reviews */}
+        {/* LEFT SIDE */}
         <div className="lg:col-span-7 space-y-6">
           {reviews.map((review, index) => (
             <div
               key={review.id}
               data-aos="fade-up"
-              data-aos-delay={index * 120}
-              className="bg-[#f3d09c] p-8 rounded-xl shadow-sm"
+              data-aos-delay={index * 100}
+              className="bg-[#f3d09c] p-5 sm:p-8 rounded-xl shadow-sm"
             >
-              <div className="flex justify-between items-start mb-4">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
                 <div className="flex items-center gap-4">
-                  <div className="text-center">
-                    <img
-                      src={review.image}
-                      alt={review.name}
-                      className="w-12 h-12 rounded-full object-cover mb-1 border-2 border-white"
-                    />
-                    <p className="text-xs font-semibold text-gray-700">
+                  <img
+                    src={review.image}
+                    alt={review.name}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-gray-700">
                       {review.name}
                     </p>
+                    <p className="text-sm font-bold text-[#ce8736]">
+                      {review.rating}
+                      <span className="text-xs text-black/50 font-normal">
+                        /10 Rating
+                      </span>
+                    </p>
                   </div>
-
-                  <p className="text-lg font-bold text-[#ce8736]">
-                    {review.rating}
-                    <span className="text-xs text-black/50 font-normal">
-                      /10 Rating average
-                    </span>
-                  </p>
                 </div>
 
                 <span className="text-xs italic text-black/50">
@@ -117,7 +123,7 @@ export default function RoomReviewSection() {
                 </span>
               </div>
 
-              <h4 className="font-bold text-gray-900 mb-2 italic">
+              <h4 className="font-bold text-gray-900 mb-2 italic text-sm sm:text-base">
                 "{review.title}"
               </h4>
 
@@ -129,16 +135,19 @@ export default function RoomReviewSection() {
 
           <button
             data-aos="fade-up"
-            data-aos-delay="600"
-            className="border-2 border-[#f3d09c] text-[#eb9737] px-8 py-3 rounded-full font-bold text-sm hover:bg-[#eb9737] hover:text-white transition-all uppercase tracking-widest"
+            className="w-full sm:w-auto border-2 border-[#f3d09c] text-[#eb9737]
+                       px-8 py-3 rounded-full font-bold text-sm
+                       hover:bg-[#eb9737] hover:text-white transition-all uppercase tracking-widest"
           >
             Leave a Review
           </button>
         </div>
 
-        {/* RIGHT SIDE: GSAP pinned container */}
-        <div ref={stickyRef} className="lg:col-span-5 w-full">
-
+        {/* RIGHT SIDE */}
+        <div
+          ref={stickyRef}
+          className="lg:col-span-5 w-full mt-6 lg:mt-0"
+        >
           <span
             data-aos="fade-left"
             className="text-[#f3d09c] uppercase tracking-[0.2em] text-xs font-bold"
@@ -148,35 +157,29 @@ export default function RoomReviewSection() {
 
           <h2
             data-aos="fade-left"
-            data-aos-delay="100"
-            className="text-5xl font-bold text-[#333] mt-2 mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#333] mt-2 mb-4"
           >
             Reviews
           </h2>
 
           <p
             data-aos="fade-left"
-            data-aos-delay="200"
-            className="text-gray-500 mb-10 leading-relaxed"
+            className="text-gray-500 mb-8 leading-relaxed text-sm sm:text-base"
           >
-            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.
+            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.
           </p>
 
-          {/* Progress Bars */}
-          <div className="space-y-6 mb-10">
+          {/* Ratings */}
+          <div className="space-y-5">
             {ratings.map((item, index) => (
               <div
                 key={item.label}
                 data-aos="fade-up"
-                data-aos-delay={300 + index * 100}
+                data-aos-delay={200 + index * 100}
               >
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-bold text-gray-800 text-sm">
-                    {item.label}
-                  </span>
-                  <span className="font-bold text-gray-800 text-sm">
-                    {item.score.toFixed(1)}
-                  </span>
+                <div className="flex justify-between text-sm font-semibold mb-2">
+                  <span>{item.label}</span>
+                  <span>{item.score.toFixed(1)}</span>
                 </div>
 
                 <div className="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
@@ -188,8 +191,8 @@ export default function RoomReviewSection() {
               </div>
             ))}
           </div>
-
         </div>
+
       </div>
     </section>
   );

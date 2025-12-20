@@ -20,11 +20,11 @@ const images = [
 export default function RoomGallerySection() {
   return (
     <section
-      className="w-full py-20 bg-white overflow-hidden"
+      className="w-full py-10 lg:py-20 bg-white overflow-hidden"
       data-aos="fade-up"
     >
       <div
-        className="relative w-full max-w-[1600px] mx-auto px-4"
+        className="relative w-full max-w-[1600px] h-auto mx-auto px-4"
         data-aos="fade-up"
         data-aos-delay="100"
       >
