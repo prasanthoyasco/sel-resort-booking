@@ -10,6 +10,7 @@ const Navigation = ({ bg }) => {
   const location = useLocation();
 
   const isStayPage = location.pathname.startsWith("/stay");
+  const isContact = location.pathname.startsWith("/contact");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +42,8 @@ const Navigation = ({ bg }) => {
     : bg === "light"
     ? "bg-white/50 backdrop-blur-md text-black"
     : bg === "transparent" && isStayPage
+    ? "bg-black/20 backdrop-blur-lg"
+    : bg === "transparent" && isContact
     ? "bg-black/20 backdrop-blur-lg"
     : "bg-transparent";
 

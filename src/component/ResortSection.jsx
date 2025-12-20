@@ -81,7 +81,7 @@ export default function ResortSection() {
         >
           <div className="max-w-xl">
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-white sm:text-start text-center font-semibold mb-4">
-              Life Along The Coast
+              Now You can Book Online
             </h2>
             <p className="text-gray-200 text-base sm:text-lg sm:text-start text-center">
               The villas were built with low-impact methods, following the
@@ -165,18 +165,18 @@ export default function ResortSection() {
                   >
                     {card.area && (
                       <div className="flex items-center gap-4 mb-6 sm:mb-15">
-                        <div className="p-3 bg-white/70 border rounded-full shadow-sm">
+                        <div className="p-3 bg-white/70 border border-gray-300 rounded-full shadow-sm">
                           <img
                             src="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/6851263bb91fe7531b08f691_Frame.svg"
                             className="w-10 sm:w-12"
                           />
                         </div>
 
-                        <div className="px-1 py-4 bg-white/70 border rounded-full text-center shadow-sm">
+                        <div className="px-1 py-4 bg-white/70 border border-gray-300 rounded-full text-center shadow-sm">
                           <div className="text-lg sm:text-xl font-semibold">
                             {card.area} <span className="text-sm ml-1">M2</span>
                           </div>
-                          <div className="text-gray-500 text-xs ">
+                          <div className="text-gray-500 text-xs">
                             {card.areaDesc}
                           </div>
                         </div>

@@ -12,6 +12,7 @@ import AuthPage from "./pages/AuthPage.jsx";
 import SmoothScroll from "./component/SmoothScroll.jsx";
 import Navigation from "./component/Navigation.jsx";
 import ScrollRestoration from "./component/ScrollRestoration.jsx";
+import { ContactUs } from "./pages/ContactUs.jsx";
 
 function Contact() {
   return <h1>Contact Page</h1>;
@@ -38,7 +39,7 @@ export default function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/stay/:name" element={<StaylistPage />} />
-                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/contact" element={<ContactUs />} />
                   <Route path="/gallery" element={<Gallery />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/rooms/:name" element={<ResortDetails />} />
