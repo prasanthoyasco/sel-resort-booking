@@ -1,4 +1,5 @@
 import { Accessibility, ArrowUpRight, Bath, CarFront, HouseWifi } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function ResortRoomCard({
   image,
@@ -7,6 +8,7 @@ export default function ResortRoomCard({
   size,
   tags = [],
 }) {
+  const navigation = useNavigate();
   return (
     /* Changed: flex-col on mobile, flex-row on desktop (lg) */
     <div className="w-full bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-6 lg:gap-8">
@@ -59,7 +61,7 @@ export default function ResortRoomCard({
         </div>
 
         {/* CTA */}
-        <div className="flex items-center gap-4 mt-4 lg:mt-0">
+        <div className="flex items-center gap-4 mt-4 lg:mt-0" onClick={()=>{navigation(`/room/details`)}}>
           <span className="text-sm font-medium">Discover More</span>
           <button className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors">
             <ArrowUpRight size={18} />

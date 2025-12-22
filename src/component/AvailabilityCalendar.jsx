@@ -4,8 +4,11 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import DatePickerCustomHeaderTwoMonth from "./DatePickerCustomHeaderTwoMonth";
 import DatePickerCustomDay from "./DatePickerCustomDay";
+import { useNavigate } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
 
 export default function AvailabilityCalendar() {
+  const navigate = useNavigate()
   const [startDate, setStartDate] = useState(() => {
       const today = new Date();
       return today;
@@ -77,9 +80,10 @@ export default function AvailabilityCalendar() {
               {availableRooms.map((room, idx) => (
                 <li
                   key={idx}
-                  className="border border-gray-200 rounded-xl p-4 text-sm text-gray-700 shadow-sm"
+                  onClick={()=>{navigate("/room/details")}}
+                  className="border border-gray-200 cursor-pointer flex justify-between items-center rounded-xl p-4 text-sm text-gray-700 shadow-sm"
                 >
-                  {room}
+                  {room} <span className="text-[#ffb47d] hover:text-[#faa86d] text-xs">View Details <ExternalLink size={12} className="inline-block ml-1"/></span>
                 </li>
               ))}
             </ul>

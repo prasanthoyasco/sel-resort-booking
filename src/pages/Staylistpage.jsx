@@ -5,7 +5,7 @@ import BookingPage from "../component/BookingPage";
 import StayReview from "../component/StayReview";
 import StayGallery from "../component/StayGallery/StayGallery";
 import LocationSection from "../component/LocationSection";
-import Footer from "../component/Footer";
+import NewFooter from "../component/NewFooter";
 import HappeningCities from "../component/HappeningCities";
 
 export default function StaylistPage() {
@@ -18,7 +18,7 @@ export default function StaylistPage() {
       <StayReview/>
       <LocationSection/>
       <HappeningCities/>
-      <Footer/>
+       <NewFooter />
     </div>
   );
 }

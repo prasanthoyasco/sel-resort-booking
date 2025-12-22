@@ -60,7 +60,7 @@ const ReviewSection = () => {
     if (half) stars.push(<FaStarHalfAlt key="half" />);
     while (stars.length < 5)
       stars.push(
-        <FaStar key={`e-${stars.length}`} className="text-gray-300" />
+        <FaStar key={`e-${stars.length}`} className="text-[#fad9c1]" />
       );
 
     return stars;
@@ -99,7 +99,7 @@ const ReviewSection = () => {
                 </p>
                 <p className="text-gray-500 text-sm mt-2">{item.subText}</p>
 
-                <div className="flex justify-center gap-1 text-blue-400 text-xl mt-3">
+                <div className="flex justify-center gap-1 text-[#ffb47d] text-xl mt-3">
                   {renderStars(item.stars)}
                 </div>
               </div>

@@ -5,7 +5,7 @@ import VillaBookingSection from "../component/VillaBookingSection";
 import LifeAlongTheCoast from "../component/LifeAlongTheCoast";
 import ReviewSection from "../component/ReviewSection";
 import ReviewSlider from "../component/ReviewSlider";
-import Footer from "../component/Footer";
+import NewFooter from "../component/NewFooter";
 
 const About = () => {
   return (
@@ -39,7 +39,7 @@ const About = () => {
       
       {/* <TestimonialCard/> */}
       <div className="px-2">
-        <Footer />
+        <NewFooter />
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import GalleryHero from "../component/GalleryHero";
 import InfiniteGallery from "../component/InfiniteGallery";
-import Footer from "../component/Footer";
+import NewFooter from "../component/NewFooter";
 
 export default function Gallery() {
   return (
@@ -29,7 +29,7 @@ export default function Gallery() {
       />
 
       <InfiniteGallery />
-      <Footer />
+      <NewFooter />
     </>
   );
 }
