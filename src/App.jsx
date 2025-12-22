@@ -39,12 +39,12 @@ export default function App() {
               <SmoothScroll>
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/stay/:name" element={<StaylistPage />} />
                   <Route path="/contact" element={<ContactUs />} />
                   <Route path="/gallery" element={<Gallery />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/stay/rooms/:name" element={<ResortDetails />} />
                   <Route path="/room/details" element={<RoomDetails />} />
+                  <Route path="/stay/:name" element={<StaylistPage />} />
+                  <Route path="/stay/rooms/:name" element={<ResortDetails />} />
                 </Routes>
               </SmoothScroll>
             </>

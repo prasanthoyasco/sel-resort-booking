@@ -10,8 +10,8 @@ export default function GalleryHero({
   cards = [],
   showPlayButton = true,
   playImage,
-  playTextLeft = "watch a video",
-  playTextRight = "about us",
+  playTextLeft = "Watch a video",
+  playTextRight = "About us",
 }) {
   return (
     <section
@@ -79,21 +79,21 @@ export default function GalleryHero({
       {/* Play Button */}
       {showPlayButton && (
         <div
-          className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 text-center"
+          className="absolute -bottom-1 left-1/2 z-30 -translate-x-1/2 text-center"
           data-aos="fade-up"
           data-aos-delay="700"
         >
-          <div className="mx-auto mb-2 flex h-18 w-18 items-center justify-center rounded-full bg-orange-100">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-orange-200">
-              {playImage && (
-                <img src={playImage} alt="Play" className="ml-1" />
-              )}
+          <div className="flex items-center gap-3 text-sm text-gray-700">
+            <span className="p-2 bg-white rounded-full">{playTextLeft}</span>
+            <div className="mx-auto mb-2 flex h-19 w-19 items-center justify-center rounded-full bg-orange-100">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-orange-200">
+                {playImage && (
+                  <img src={playImage} alt="Play" className="ml-1" />
+                )}
+              </div>
             </div>
-          </div>
 
-          <div className="flex items-center gap-16 text-sm text-gray-700">
-            <span>{playTextLeft}</span>
-            <span>{playTextRight}</span>
+            <span className="p-2 bg-white rounded-full">{playTextRight}</span>
           </div>
         </div>
       )}

@@ -5,7 +5,7 @@ const villas = [
   {
     name: "Villa Sundara",
     description:
-      "A place where time stands still. Among herbs’ scent and the wind’s whisper, find peace hidden from the world.",
+      "A place where time stands still. Among herbs' scent and the wind's whisper, find peace hidden from the world. Nestled on the pristine coastline, this villa offers an escape from the ordinary with its serene atmosphere, lush botanical gardens, and breathtaking ocean views that inspire tranquility and rejuvenation.",
     images: [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
       "https://images.unsplash.com/photo-1600210492493-0946911123ea",
@@ -15,7 +15,7 @@ const villas = [
   {
     name: "Villa Miraia",
     description:
-      "An intimate retreat designed for serene coastal living with panoramic sea views.",
+      "An intimate retreat designed for serene coastal living with panoramic sea views. This exquisite villa combines elegance with comfort, featuring spacious terraces, private beach access, and sophisticated interiors that seamlessly blend contemporary design with natural beauty, perfect for those seeking a luxurious yet peaceful getaway.",
     images: [
       "https://images.unsplash.com/photo-1600210492493-0946911123ea",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
@@ -24,7 +24,7 @@ const villas = [
   {
     name: "Villa Azari",
     description:
-      "Modern luxury meets nature with expansive open spaces and refined interiors.",
+      "Modern luxury meets nature with expansive open spaces and refined interiors. This architectural masterpiece features floor-to-ceiling windows, infinity pools overlooking the ocean, and bespoke amenities that cater to the discerning traveler. Every detail has been meticulously crafted to provide an unforgettable experience of coastal sophistication.",
     images: [
       "https://images.unsplash.com/photo-1616594039964-ae9021a400a0",
       "https://images.unsplash.com/photo-1600210492493-0946911123ea",
@@ -55,8 +55,28 @@ export default function LifeAlongTheCoast() {
     changeImage(activeImage === images.length - 1 ? 0 : activeImage + 1);
 
   useEffect(() => {
-    setActiveImage(0);
+    setTimeout(() => {
+      setActiveImage(0);
+    }, 0);
   }, [activeVilla]);
+
+  useEffect(() => {
+  if (images.length <= 1) return;
+
+  const interval = setInterval(() => {
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      setActiveImage((prev) =>
+        prev === images.length - 1 ? 0 : prev + 1
+      );
+      setIsAnimating(false);
+    }, 300);
+  }, 4000); // autoplay speed (4s)
+
+  return () => clearInterval(interval);
+}, [activeVilla, images.length]);
+
 
   return (
     <section className="bg-white lg:py-28 lg:px-40 px-5 py-10">
@@ -79,7 +99,7 @@ export default function LifeAlongTheCoast() {
                   <span
                     className={`text-lg transition-colors duration-300 ${
                       i === activeVilla
-                        ? "text-[#758dc2] font-medium"
+                        ? "text-[#ffb47d] font-medium"
                         : "text-gray-400 group-hover:text-gray-600"
                     }`}
                   >
@@ -89,7 +109,7 @@ export default function LifeAlongTheCoast() {
                   {/* ANIMATED LINE */}
                   <span
                     className={`
-            h-0.5 w-40 bg-[#758dc2]
+            h-0.5 w-40 bg-[#ffb47d]
             origin-left transform transition-transform duration-800 ease-out
             ${i === activeVilla ? "scale-x-100" : "scale-x-0"}
           `}
@@ -106,7 +126,7 @@ export default function LifeAlongTheCoast() {
             ))}
           </div>
 
-          <a className="mt-16 text-sm text-gray-500 hover:text-black">
+          <a className="mt-8 text-sm text-gray-500 hover:text-black">
             Accommodation Details →
           </a>
         </div>
@@ -143,14 +163,14 @@ export default function LifeAlongTheCoast() {
             {/* ARROWS */}
             <button
               onClick={prevImage}
-              className="absolute -left-7 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-[#758dc2] border-4 border-white flex items-center justify-center shadow"
+              className="absolute -left-7 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-[#ffb47d] border-4 border-white flex items-center justify-center shadow"
             >
               <ArrowLeft />
             </button>
 
             <button
               onClick={nextImage}
-              className="absolute -right-7 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-[#758dc2] border-4 border-white flex items-center justify-center shadow"
+              className="absolute -right-7 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-[#ffb47d] border-4 border-white flex items-center justify-center shadow"
             >
               <ArrowRight />
             </button>

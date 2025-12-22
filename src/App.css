@@ -10,6 +10,15 @@ svg {
   -webkit-backface-visibility: hidden;
   transform: translateZ(0); /* Forces GPU rendering */
 }
+.curved-mask {
+  --r: 32px; /* curve radius */
+  -webkit-mask:
+    radial-gradient(var(--r) at 100% 100%, #0000 98%, #000) top left,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
 .filter-pill {
   @apply px-4 py-2 rounded-full border border-gray-300 text-sm font-medium flex items-center gap-2 hover:border-indigo-600 transition;
 }
