@@ -11,9 +11,9 @@ const HeroSearchForm = ({
 const [open, setOpen] = useState(false);
   return (
     <div className={`w-full max-w-6xl py-2 md:py-3 px-1 ${className}`}>
-      <h2 className="text-white text-center mb-4 font-bold text-2xl">Select Your Stay with Sel</h2>
+      <h2 className="text-white text-center mb-4 font-bold text-xl lg:text-2xl">Select Your Stay with Sel</h2>
       {/* TABS */}
-      <div className="md:hidden mb-4">
+      <div className="md:hidden mb-4 relative">
         <div
           onClick={() => setOpen(!open)}
           className="flex items-center justify-between bg-white px-5 py-3 rounded-full cursor-pointer shadow-md"
@@ -28,7 +28,7 @@ const [open, setOpen] = useState(false);
         </div>
 
         {open && (
-          <div className="mt-3 bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="mt-3 absolute bottom-15 z-50 w-full bg-white rounded-2xl shadow-lg overflow-hidden">
             {tabs.map((tab) => (
               <div
                 key={tab}

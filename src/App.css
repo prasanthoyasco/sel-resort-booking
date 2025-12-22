@@ -233,11 +233,11 @@ nav {
 /* MOBILE OVERRIDES */
 @media (max-width: 768px) {
   .hero-nav-left {
-  inset: 66% auto 0% -5px;
+  inset: 44% auto 0% -5px;
 }
 
 .hero-nav-right {
-  inset: 66% -5px 0% auto;
+  inset: 44% -5px 0% auto;
 }
 
 }

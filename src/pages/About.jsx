@@ -34,10 +34,10 @@ const About = () => {
         ]}
       />
       <AboutUs />
-      <VillaBookingSection />
       <LifeAlongTheCoast />
-      <ReviewSection />
+      <VillaBookingSection />
       <AboutWithVisionMission/>
+      <ReviewSection />
       <TestimonialSlider />
       {/* <ReviewSlider /> */}
 

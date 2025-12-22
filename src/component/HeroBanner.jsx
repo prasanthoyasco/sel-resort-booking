@@ -59,8 +59,8 @@ export default function HeroBanner() {
           </h1>
         </div>
         {/* ---------- Booking Form ---------- */}
-<div
-  className="
+        <div
+          className="
     absolute
     z-200
     bg-white/30 backdrop-blur-xl
@@ -70,17 +70,16 @@ export default function HeroBanner() {
 
     /* Mobile & Tablet (center) */
     left-1/2 -translate-x-1/2
-    w-[75%] md:w-[85%]
+    w-[90%] md:w-[85%]
 
     /* Desktop (right corner) */
     lg:left-auto lg:right-6 lg:translate-x-0 lg:w-auto
 
     pointer-events-auto
   "
->
-  <HeroSearchForm />
-</div>
-
+        >
+          <HeroSearchForm />
+        </div>
 
         {/* ---------- NAV BUTTONS ---------- */}
         <button
