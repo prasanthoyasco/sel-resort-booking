@@ -15,7 +15,7 @@ export default function HeroBanner() {
   ];
 
   return (
-    <section className="relative w-full min-h-screen h-screen px-2 py-1.5 overflow-x-clip overflow-y-visible">
+    <section className="relative w-full min-h-screen bg-[#f2f2f1] h-screen px-2 py-1.5 overflow-x-clip overflow-y-visible">
       {/* ---------- SLIDER ONLY FOR IMAGES ---------- */}
       <Swiper
         modules={[Navigation, Autoplay, EffectFade]}

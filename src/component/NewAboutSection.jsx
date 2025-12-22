@@ -23,9 +23,9 @@ const items = [
 ];
 export default function NewAboutSection() {
     return (
-        <section className="bg-white py-13 lg:h-[113vh] h-auto">
-            <div className="mx-auto px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-[550px_1fr] gap-10 items-start">
+        <section className="bg-white py-5 sm:py-13 lg:h-[113vh] h-auto">
+            <div className="mx-auto px-4 sm:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-[550px_1fr] gap-5 sm:gap-10 items-start">
 
                     {/* LEFT LARGE IMAGE */}
                     <div className="overflow-hidden rounded-xl">
@@ -41,8 +41,8 @@ export default function NewAboutSection() {
 
                         {/* Subtitle */}
                         <div className="flex items-center gap-4 mb-6">
-                            <span className="w-12 h-[1px] bg-black"></span>
-                            <span className="tracking-[0.3em] text-sm text-black">
+                            <span className="w-12 h-px bg-[#eea159]"></span>
+                            <span className="tracking-[0.3em] text-sm text-[#eea159]">
                                 ABOUT US
                             </span>
                         </div>
@@ -88,16 +88,13 @@ export default function NewAboutSection() {
                                 {/* Button */}
                                 {/* ICONS + CTA (COMPACT & CENTERED) */}
                                 <div className="mt-4 flex flex-col justify-between items-start gap-6 lg:w-[90%] w-full lg:h-[75%]">
-
-
-
                                     <a
                                         href="/rooms"
-                                        className="inline-block px-7 py-3 border border-black tracking-widest text-xs hover:bg-black hover:text-white transition"
+                                        className="inline-block px-7 py-4 sm:py-3 w-full text-center sm:w-auto rounded-full border border-[a3b7c2] tracking-widest text-xs hover:bg-[#1C1C1C] hover:text-white transition"
                                     >
                                         VIEW ROOMS
                                     </a>
-                                    <div className="flex gap-3 md:flex-wrap lg:flex-nowrap flex-wrap mt-auto">
+                                    <div className="flex gap-4 sm:gap-3 md:flex-wrap lg:flex-nowrap flex-wrap mt-auto">
                                         {items.map((item, idx) => (
                                             <div
                                                 key={idx}
@@ -116,7 +113,7 @@ export default function NewAboutSection() {
                                                     />
                                                 </div>
 
-                                                <p className="mt-2 text-[12px] text-black text-center max-w-[120px] leading-tight">
+                                                <p className="mt-2 text-xs sm:text-[12px] text-black text-center max-w-[120px] leading-tight">
                                                     {item.label}
                                                 </p>
                                             </div>
@@ -129,11 +126,11 @@ export default function NewAboutSection() {
 
                             {/* RIGHT BOTTOM IMAGE */}
                             <div className="lg:absolute relative right-0 lg:bottom-0 -md:bottom-1/2 bottom-15 lg:w-[360px] md:w-[360px] w-full translate-y-24 ">
-                                <div className="overflow-hidden rounded-xl h-[100%]">
+                                <div className="overflow-hidden rounded-xl h-[30vh] lg:h-full">
                                     <img
                                         src="https://cdn.prod.website-files.com/684c437bd1bedfba51264f48/685457ebec31ca9013fd05fe_pexels-habi-dompil-1539296-2964163.jpg"
                                         alt="Resort second view"
-                                        className="w-full object-cover h-[30vh] lg:h-[100%] md:h-[100%]"
+                                        className="w-full object-cover h-[30vh] lg:h-full md:h-full"
                                     />
                                 </div>
                             </div>
