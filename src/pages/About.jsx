@@ -1,10 +1,8 @@
-import React from "react";
 import GalleryHero from "../component/GalleryHero";
 import AboutUs from "../component/AboutUs";
 import VillaBookingSection from "../component/VillaBookingSection";
 import LifeAlongTheCoast from "../component/LifeAlongTheCoast";
 import ReviewSection from "../component/ReviewSection";
-import ReviewSlider from "../component/ReviewSlider";
 import NewFooter from "../component/NewFooter";
 import TestimonialSlider from "../component/TestimonialSlider";
 import AboutWithVisionMission from "../component/AboutWithVisionMission";
@@ -14,6 +12,7 @@ const About = () => {
     <>
       <GalleryHero
         title="About Us"
+        height = "h-[35vh] sm:h-[70vh]"
         backgroundImage="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/685947918e65ff2b7cb961b2_Banner-1.webp"
         playImage="https://cdn.prod.website-files.com/683d7e98e0d3f4e5915a5def/684bbaeede270ba0c81fc1a6_Play.webp"
         cards={[
